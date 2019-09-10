@@ -14,6 +14,7 @@ class ARViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
+    
     var counter = 1
     
     override func viewDidLoad() {
@@ -28,12 +29,15 @@ class ARViewController: UIViewController {
     
     
     @IBAction func incrementButton(_ sender: Any) {
-        counter += 1
-
+        if counter <= 5 {
+            counter += 1
+        }
     }
     
     @IBAction func decrementButton(_ sender: Any) {
-        counter -= 1
+        if counter >= 2 {
+            counter -= 1 
+        }
     }
     
 }
