@@ -8,12 +8,14 @@
 
 import UIKit
 import ARKit
+import WebKit
 
 // Where the logic will be. There are 2 buttons. To add choose how many screens they want. They can increment and decrement
 class ARViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
+    @IBOutlet weak var webView: WKWebView!
     
     var counter = 1
     
@@ -36,7 +38,7 @@ class ARViewController: UIViewController {
     
     @IBAction func decrementButton(_ sender: Any) {
         if counter >= 2 {
-            counter -= 1 
+            counter -= 1
         }
     }
     

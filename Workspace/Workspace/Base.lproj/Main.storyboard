@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="numberOfScreens" destination="ZBY-Wv-G3P" id="JEf-1R-sGu"/>
                         <outlet property="sceneView" destination="bj9-AX-fHX" id="Uum-Q4-MR9"/>
+                        <outlet property="webView" destination="uPp-rp-voh" id="XNe-NC-pXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
