@@ -27,6 +27,8 @@ class ARViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.numberOfScreens.text = String(counter)
+        let configeration = ARWorldTrackingConfiguration()
+        sceneView.session.run(configeration)
     }
     
     
