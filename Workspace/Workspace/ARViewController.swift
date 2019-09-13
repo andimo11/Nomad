@@ -15,7 +15,6 @@ class ARViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
-    @IBOutlet weak var webView: WKWebView!
     
     var counter = 1
     
