@@ -25,7 +25,6 @@ class ARViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.numberOfScreens.text = String(counter)
         let configeration = ARWorldTrackingConfiguration()
         sceneView.session.run(configeration)
     }
@@ -34,12 +33,16 @@ class ARViewController: UIViewController {
     @IBAction func incrementButton(_ sender: Any) {
         if counter <= 5 {
             counter += 1
+            self.numberOfScreens.text = String(counter)
+
         }
     }
     
     @IBAction func decrementButton(_ sender: Any) {
         if counter >= 2 {
             counter -= 1
+            self.numberOfScreens.text = String(counter)
+
         }
     }
     
