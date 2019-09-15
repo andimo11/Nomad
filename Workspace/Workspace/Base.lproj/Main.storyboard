@@ -21,21 +21,10 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj9-AX-fHX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvj-5K-kiv">
-                                <rect key="frame" x="352" y="806" width="42" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="Unp-dI-8hQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="incrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zzK-YX-N2u"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-ZF-qRD">
-                                <rect key="frame" x="20" y="806" width="42" height="57"/>
+                                <rect key="frame" x="72" y="821" width="42" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="PXR-pe-h8L"/>
+                                    <constraint firstAttribute="width" constant="42" id="uhk-iZ-mDN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
                                 <state key="normal" title="-"/>
@@ -43,34 +32,37 @@
                                     <action selector="decrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjg-AR-xDq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBY-Wv-G3P">
-                                <rect key="frame" x="201" y="824" width="12" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="FzZ-yA-X6u"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvj-5K-kiv">
+                                <rect key="frame" x="320" y="821" width="30" height="56"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="incrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zzK-YX-N2u"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBY-Wv-G3P">
+                                <rect key="frame" x="196" y="836" width="13" height="26"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="top" secondItem="tvj-5K-kiv" secondAttribute="top" id="2Ga-PJ-Mf8"/>
-                            <constraint firstItem="tvj-5K-kiv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9B0-lH-dfY"/>
-                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="firstBaseline" secondItem="tvj-5K-kiv" secondAttribute="baseline" id="Fb0-Yv-MCk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZBY-Wv-G3P" secondAttribute="bottom" constant="17" id="IPK-7f-mi8"/>
+                            <constraint firstItem="ZBY-Wv-G3P" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4EP-Gb-GR7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tvj-5K-kiv" secondAttribute="trailing" constant="64" id="9Oz-9a-1vT"/>
+                            <constraint firstAttribute="bottom" secondItem="DbV-ZF-qRD" secondAttribute="bottom" constant="19" id="9UU-z2-D8d"/>
+                            <constraint firstItem="ZBY-Wv-G3P" firstAttribute="leading" secondItem="DbV-ZF-qRD" secondAttribute="trailing" constant="82" id="C1L-zY-jOW"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
-                            <constraint firstItem="ZBY-Wv-G3P" firstAttribute="centerY" secondItem="DbV-ZF-qRD" secondAttribute="centerY" id="WhY-4M-Ls2"/>
-                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ljS-t4-5ug"/>
+                            <constraint firstAttribute="bottom" secondItem="tvj-5K-kiv" secondAttribute="bottom" constant="19" id="aVD-y9-5yn"/>
+                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="iJL-GD-J2b"/>
+                            <constraint firstItem="tvj-5K-kiv" firstAttribute="baseline" secondItem="DbV-ZF-qRD" secondAttribute="baseline" id="jKb-w1-LoC"/>
                             <constraint firstAttribute="bottom" secondItem="bj9-AX-fHX" secondAttribute="bottom" id="nos-8c-gMW"/>
                             <constraint firstAttribute="trailing" secondItem="bj9-AX-fHX" secondAttribute="trailing" id="pQS-t8-7Mu"/>
-                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="baseline" secondItem="tvj-5K-kiv" secondAttribute="firstBaseline" id="ttc-zJ-T7p"/>
-                            <constraint firstItem="tvj-5K-kiv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="352" id="voQ-CB-utS"/>
-                            <constraint firstItem="tvj-5K-kiv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yIT-nW-Scv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="numberOfScreens" destination="ZBY-Wv-G3P" id="JEf-1R-sGu"/>
                         <outlet property="sceneView" destination="bj9-AX-fHX" id="Uum-Q4-MR9"/>
