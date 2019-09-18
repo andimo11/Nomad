@@ -14,6 +14,7 @@
 		0F3D9EA12327544F0051302A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */; };
 		0F3D9EAC2327544F0051302A /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */; };
 		0F3D9EB92331B81D0051302A /* VoiceAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EB82331B81D0051302A /* VoiceAssistantViewController.swift */; };
+		0F3D9EBB2331D4540051302A /* GoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EBA2331D4540051302A /* GoogleTranslate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceTests.swift; sourceTree = "<group>"; };
 		0F3D9EAD2327544F0051302A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F3D9EB82331B81D0051302A /* VoiceAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAssistantViewController.swift; sourceTree = "<group>"; };
+		0F3D9EBA2331D4540051302A /* GoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */,
 				0F3D9EA22327544F0051302A /* Info.plist */,
 				0F3D9EB82331B81D0051302A /* VoiceAssistantViewController.swift */,
+				0F3D9EBA2331D4540051302A /* GoogleTranslate.swift */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				0F3D9E992327544C0051302A /* ARViewController.swift in Sources */,
 				0F3D9E972327544C0051302A /* AppDelegate.swift in Sources */,
 				0F3D9EB92331B81D0051302A /* VoiceAssistantViewController.swift in Sources */,
+				0F3D9EBB2331D4540051302A /* GoogleTranslate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

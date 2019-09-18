@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
-class VoiceAssistantViewController: UIViewController {
+class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
     
-    let APIKey = "AIzaSyD7RpDRF15KsNnvv_Poln8oqVBp5-VP_ZI"
-    let apiUrl = "https://speech.googleapis.com/v1/operations/"
-
+    static let voice = SpeechService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
