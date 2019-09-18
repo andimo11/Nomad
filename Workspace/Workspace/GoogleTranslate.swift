@@ -10,12 +10,9 @@ import Foundation
 import AVFoundation
 
 let Key = "AIzaSyD7RpDRF15KsNnvv_Poln8oqVBp5-VP_ZI"
-let ApiUrl = "https://speech.googleapis.com/v1/operations/"
+let ApiUrl = "https://speech.googleapis.com/v1p1beta1/speech:longrunningrecognize"
 
 class SpeechService: NSObject, AVAudioPlayerDelegate {
 
-    func toText(audio: NSData) {
-        
-    }
     
 }
