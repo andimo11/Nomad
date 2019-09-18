@@ -19,9 +19,35 @@ class SpeechService: NSObject, AVAudioPlayerDelegate {
     
     private(set) var busy: Bool = false
     
-    func speech(audio: NSData) {
+    func speech() {
         self.busy = true
         
+        DispatchQueue.global(qos: .background) .async {
+            
+        }
+        
+    }
+    
+    private func buildPostData(audio: NSData, voiceType: VoiceType) -> Data {
+        
+        var voiceParams: [String: Any] = [
+            // All available voices here: https://cloud.google.com/text-to-speech/docs/voices
+            "languageCode": "en-US"
+        ]
+        
+        if voiceType != .undefined {
+            voiceParams["name"] = voiceType.rawValue
+        }
+        
+        let params: [String: Any] = [
+            "input": [
+                "audio": audio
+            ],
+        ]
+        
+        // Convert the Dictionary to Data
+        let data = try! JSONSerialization.data(withJSONObject: params)
+        return data
     }
     
     
