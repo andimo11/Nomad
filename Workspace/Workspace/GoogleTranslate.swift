@@ -28,21 +28,15 @@ class SpeechService: NSObject, AVAudioPlayerDelegate {
         
     }
     
-    private func buildPostData(audio: NSData, voiceType: VoiceType) -> Data {
+    private func buildPostData(audio: NSData) -> Data {
         
-        var voiceParams: [String: Any] = [
-            // All available voices here: https://cloud.google.com/text-to-speech/docs/voices
-            "languageCode": "en-US"
-        ]
-        
-        if voiceType != .undefined {
-            voiceParams["name"] = voiceType.rawValue
-        }
         
         let params: [String: Any] = [
-            "input": [
-                "audio": audio
-            ],
+            "audio": audio,
+            "config": [
+                "languageCode": "en_US"
+            ]
+            
         ]
         
         // Convert the Dictionary to Data
