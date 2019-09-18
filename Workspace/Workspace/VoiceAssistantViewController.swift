@@ -12,11 +12,16 @@ import AVFoundation
 class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
     
     static let voice = SpeechService()
+    private let recorder = AVAudioRecorder()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
+    
+    
     
 
     /*

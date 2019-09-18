@@ -19,7 +19,7 @@ class SpeechService: NSObject, AVAudioPlayerDelegate {
     
     private(set) var busy: Bool = false
     
-    func speech() {
+    func speech(audio: NSData) {
         self.busy = true
         
         DispatchQueue.global(qos: .background) .async {
@@ -42,6 +42,10 @@ class SpeechService: NSObject, AVAudioPlayerDelegate {
         // Convert the Dictionary to Data
         let data = try! JSONSerialization.data(withJSONObject: params)
         return data
+    }
+    
+    private func makePostRequest() {
+        
     }
     
     
