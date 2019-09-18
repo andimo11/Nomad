@@ -14,5 +14,16 @@ let ApiUrl = "https://speech.googleapis.com/v1p1beta1/speech:longrunningrecogniz
 
 class SpeechService: NSObject, AVAudioPlayerDelegate {
 
+    private var player: AVAudioPlayer?
+    private var completionHandler: (() -> Void)?
+    
+    private(set) var busy: Bool = false
+    
+    func speech(audio: NSData) {
+        self.busy = true
+        
+    }
+    
+    
     
 }
