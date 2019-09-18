@@ -40,6 +40,14 @@
                                     <action selector="incrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zzK-YX-N2u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uG-41-drx">
+                                <rect key="frame" x="300" y="33" width="70" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Assistant"/>
+                                <connections>
+                                    <segue destination="cTx-uY-OLY" kind="presentation" id="sMH-lJ-h5j"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBY-Wv-G3P">
                                 <rect key="frame" x="196" y="836" width="13" height="26"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
@@ -49,11 +57,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZBY-Wv-G3P" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4EP-Gb-GR7"/>
+                            <constraint firstItem="7uG-41-drx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-11" id="8N9-0p-ANf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tvj-5K-kiv" secondAttribute="trailing" constant="64" id="9Oz-9a-1vT"/>
                             <constraint firstAttribute="bottom" secondItem="DbV-ZF-qRD" secondAttribute="bottom" constant="19" id="9UU-z2-D8d"/>
                             <constraint firstItem="ZBY-Wv-G3P" firstAttribute="leading" secondItem="DbV-ZF-qRD" secondAttribute="trailing" constant="82" id="C1L-zY-jOW"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
+                            <constraint firstItem="7uG-41-drx" firstAttribute="centerX" secondItem="tvj-5K-kiv" secondAttribute="centerX" id="S1Z-Ga-7D5"/>
                             <constraint firstAttribute="bottom" secondItem="tvj-5K-kiv" secondAttribute="bottom" constant="19" id="aVD-y9-5yn"/>
                             <constraint firstItem="DbV-ZF-qRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="iJL-GD-J2b"/>
                             <constraint firstItem="tvj-5K-kiv" firstAttribute="baseline" secondItem="DbV-ZF-qRD" secondAttribute="baseline" id="jKb-w1-LoC"/>
@@ -71,6 +81,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3qc-ue-cvI">
+            <objects>
+                <viewController id="cTx-uY-OLY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mwA-ny-Bjv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rT8-fS-av0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blC-T5-LBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="115"/>
         </scene>
     </scenes>
 </document>
