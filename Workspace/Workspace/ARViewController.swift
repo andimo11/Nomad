@@ -44,28 +44,6 @@ class ARViewController: UIViewController {
             self.numberOfScreens.text = String(counter)
 
         }
-    }
-    
-    //variables with view location data
-    struct myCameraCoordinates {
-        var x = Float()
-        var y = Float()
-        var z = Float()
-        
-    }
-    //call this function to get current location
-    func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
-        let cameraTransform = sceneView.session.currentFrame?.camera.transform
-        let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
-        
-        var cc = myCameraCoordinates()
-        cc.x = cameraCoordinates.translation.x
-        cc.y = cameraCoordinates.translation.y
-        cc.z = cameraCoordinates.translation.z
-        
-        return cc
-        
-    }
-    
+    } 
 }
 
