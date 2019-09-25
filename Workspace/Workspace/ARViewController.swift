@@ -22,6 +22,15 @@ class ARViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
+        
+    let webConfiguration = WKWebViewConfiguration()
+    webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
+    webView.uiDelegate = self
+
+    let myURL = URL(string: "https://www.reddit.com")
+    let myRequest = URLRequest(url: myURL!)
+    webView.load(myRequest)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +45,13 @@ class ARViewController: UIViewController {
             self.numberOfScreens.text = String(counter)
 
         }
+        
+    let webScreen = SCNPlane(width: 0.1,height: 0.1)
+    tvPlane.firstMaterial?.diffuse.contents = self.webView
+    let webScreenNode = SCNNode(geometry: webScreen)
+    webScreenNode.eulerAngles.x = -.pi / 2
+    node.addChildNode(webScreenNode)
+        
     }
     
     @IBAction func decrementButton(_ sender: Any) {
