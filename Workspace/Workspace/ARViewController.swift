@@ -23,19 +23,20 @@ class ARViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
         
-    let webConfiguration = WKWebViewConfiguration()
-    webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
-    webView.uiDelegate = self
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
+        webView.uiDelegate = self
 
-    let myURL = URL(string: "https://www.reddit.com")
-    let myRequest = URLRequest(url: myURL!)
-    webView.load(myRequest)
+        let myURL = URL(string: "https://www.reddit.com")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let configeration = ARWorldTrackingConfiguration()
         sceneView.session.run(configeration)
+        
     }
     
     
@@ -46,11 +47,11 @@ class ARViewController: UIViewController {
 
         }
         
-    let webScreen = SCNPlane(width: 0.1,height: 0.1)
-    webScreen.firstMaterial?.diffuse.contents = self.webView
-    let webScreenNode = SCNNode(geometry: webScreen)
-    webScreenNode.eulerAngles.x = -.pi / 2
-    node.addChildNode(webScreenNode)
+        let webScreen = SCNPlane(width: 0.1,height: 0.1)
+        webScreen.firstMaterial?.diffuse.contents = self.webView
+        let webScreenNode = SCNNode(geometry: webScreen)
+        webScreenNode.eulerAngles.x = -.pi / 2
+        node.addChildNode(webScreenNode)
         
     }
     
@@ -82,6 +83,5 @@ class ARViewController: UIViewController {
         return cc
         
     }
-    
 }
 
