@@ -47,7 +47,7 @@ class ARViewController: UIViewController {
         }
         
     let webScreen = SCNPlane(width: 0.1,height: 0.1)
-    tvPlane.firstMaterial?.diffuse.contents = self.webView
+    webScreen.firstMaterial?.diffuse.contents = self.webView
     let webScreenNode = SCNNode(geometry: webScreen)
     webScreenNode.eulerAngles.x = -.pi / 2
     node.addChildNode(webScreenNode)
