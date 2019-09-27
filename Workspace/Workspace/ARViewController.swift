@@ -47,11 +47,16 @@ class ARViewController: UIViewController {
 
         }
         
-        let webScreen = SCNPlane(width: 0.1,height: 0.1)
+        //creates webView node
+        let webScreen = SCNPlane(width: 0.7,height: 0.5)
         webScreen.firstMaterial?.diffuse.contents = self.webView
         let webScreenNode = SCNNode(geometry: webScreen)
         webScreenNode.eulerAngles.x = -.pi / 2
         node.addChildNode(webScreenNode)
+        
+        //puts screen where camera is facing
+        let cc = getCameraCoordinates(scenceView: sceneView)
+        webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
         
     }
     
