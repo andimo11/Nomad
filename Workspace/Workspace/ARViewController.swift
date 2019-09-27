@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Workspace
 //
-//  Created by James touri on 9/9/19.
-//  Copyright © 2019 jamestouri. All rights reserved.
+//  Created by James touri and Alexander Dimopoulos on 9/9/19.
+//  Copyright © 2019 jamestouri and alexanderdimopoulos. All rights reserved.
 //
 
 import UIKit
@@ -44,7 +44,6 @@ class ARViewController: UIViewController {
             self.numberOfScreens.text = String(counter)
 
         }
-    }
-    
+    } 
 }
 

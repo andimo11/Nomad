@@ -22,10 +22,6 @@ A tool which enables the user to customize a virtual workspace using their smart
  * Designed for iOS using Swift and Xcode 11 GM seed
  
  ## Resources
-
+https://research.fb.com/wp-content/uploads/2019/06/VR-Facial-Animation-via-Multiview-Image-Translation.pdf
 
 ## Questions
-To James:
-1. Is your code running? Mine will build and then I get several warning:
-    *** Terminating app due to uncaught exception 'NSInvalidUnarchiveOperationException', reason: 'Could not instantiate class named WKWebView because no class named WKWebView was found; the class needs to be defined in source code or linked in from a library (ensure the class is part of the correct target)'
-2. Will we need to build screen objects using SceneKit?
