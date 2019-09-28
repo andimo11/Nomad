@@ -13,7 +13,7 @@ import LoginWithAmazon
 class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
     
     private let recorder = AVAudioRecorder()
-    
+    static let sharedInstance = LoginWithAmazonProxy()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,10 @@ class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
         
     }
     
+    
+    @IBAction func loginWithAmazon(_ sender: Any) {
+        AIMobileLib.authorizeUser(forScopes: ["profile", "postal_code"], delegate: self as? AIAuthenticationDelegate)
+    }
     
     
 

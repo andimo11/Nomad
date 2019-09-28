@@ -24,8 +24,21 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>APIKey</key>
+	<string>eyJhbGciOiJSU0EtU0hBMjU2IiwidmVyIjoiMSJ9.eyJ2ZXIiOiIzIiwiZW5kcG9pbnRzIjp7ImF1dGh6IjoiaHR0cHM6Ly93d3cuYW1hem9uLmNvbS9hcC9vYSIsInRva2VuRXhjaGFuZ2UiOiJodHRwczovL2FwaS5hbWF6b24uY29tL2F1dGgvbzIvdG9rZW4ifSwiY2xpZW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1vYTItY2xpZW50LjY1ZGY5MGU1M2Y1MTQ5ZjY5ZTY5Zjg5NzMxMzllOTE4IiwiYXBwRmFtaWx5SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi5kMzA5NWFhNjBhYjY0OWUxOTE2NjM4YmMwZGI1ZjNkMyIsImJ1bmRsZVNlZWRJZCI6ImphbWVzdG91cmkuV29ya3NwYWNlIiwiYnVuZGxlSWQiOiJqYW1lc3RvdXJpLldvcmtzcGFjZSIsImlzcyI6IkFtYXpvbiIsInR5cGUiOiJBUElLZXkiLCJhcHBWYXJpYW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1jbGllbnQuNDQ1N2JiZjcwYjNiNGM3ZDk1NTM4NDRkMGEwMzE0OGMiLCJ0cnVzdFBvb2wiOm51bGwsImFwcElkIjoiYW16bjEuYXBwbGljYXRpb24tY2xpZW50LjQ0NTdiYmY3MGIzYjRjN2Q5NTUzODQ0ZDBhMDMxNDhjIiwiaWQiOiJhNzQwZGEwZS1hZTMyLTQ4YWQtOWM4ZS02YjkwYWM4NWU0MGEiLCJpYXQiOiIxNTY5NzA5OTM1MzY4In0=.Am40wZgONJxrj8DWqE4MuBxl+DPMdXIwxQmL1HJLZupNaqB2JDPK6g3hcCTNSxm3jljmg5YvntoqpHSQDyTgllC9EKZF/9txXVfDdD5l1Cn5giBxDtBIGrErcG1EPRTCj2/IZKo50sTpGf7AKUHRyL3jVsA5kD6JGMnyo0oGEzJVZdhGAnKuD1s6AAH8T/ju+5QBruiHCQ00DFWbEc0ZwN7ZqjXZEjjQ8ZhTCcgmbhi+h1ZlNfwFJs7AahfUGkdIh1DJ1FvqTCxOViJOs/UMNAfItC8SciYygnb72prZt8Zf1xSDVtCuIm5GjhmsR8U/F2RuSryrK+5+7FtlP3NziQ==</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>amzn-$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

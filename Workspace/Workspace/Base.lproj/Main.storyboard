@@ -87,7 +87,21 @@
                     <view key="view" contentMode="scaleToFill" id="mwA-ny-Bjv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aav-Sb-rGR">
+                                <rect key="frame" x="141" y="406" width="133" height="30"/>
+                                <state key="normal" title="Login With Amazon"/>
+                                <connections>
+                                    <action selector="loginWithAmazon:" destination="cTx-uY-OLY" eventType="touchUpInside" id="5B7-SJ-cqv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Aav-Sb-rGR" firstAttribute="centerX" secondItem="mwA-ny-Bjv" secondAttribute="centerX" id="Akm-qJ-yO0"/>
+                            <constraint firstItem="Aav-Sb-rGR" firstAttribute="leading" secondItem="rT8-fS-av0" secondAttribute="leading" constant="141" id="eld-Jh-iT8"/>
+                            <constraint firstItem="Aav-Sb-rGR" firstAttribute="centerY" secondItem="mwA-ny-Bjv" secondAttribute="centerY" id="mOf-3l-zNF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rT8-fS-av0"/>
                     </view>
                 </viewController>
