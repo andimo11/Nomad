@@ -14,7 +14,10 @@
 		0F3D9EA12327544F0051302A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */; };
 		0F3D9EAC2327544F0051302A /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */; };
 		0F3D9EB92331B81D0051302A /* VoiceAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EB82331B81D0051302A /* VoiceAssistantViewController.swift */; };
-		0F3D9EBB2331D4540051302A /* GoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EBA2331D4540051302A /* GoogleTranslate.swift */; };
+		0F3D9EBB2331D4540051302A /* AlexaTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EBA2331D4540051302A /* AlexaTranslate.swift */; };
+		0FFA56F923400F5800E15772 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFA56F823400F5800E15772 /* Security.framework */; };
+		0FFA56FB23400F6200E15772 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFA56FA23400F6200E15772 /* SafariServices.framework */; };
+		0FFA56FD2340110800E15772 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFA56FC2340110800E15772 /* LoginWithAmazon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,10 @@
 		0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceTests.swift; sourceTree = "<group>"; };
 		0F3D9EAD2327544F0051302A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F3D9EB82331B81D0051302A /* VoiceAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAssistantViewController.swift; sourceTree = "<group>"; };
-		0F3D9EBA2331D4540051302A /* GoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslate.swift; sourceTree = "<group>"; };
+		0F3D9EBA2331D4540051302A /* AlexaTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexaTranslate.swift; sourceTree = "<group>"; };
+		0FFA56F823400F5800E15772 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0FFA56FA23400F6200E15772 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		0FFA56FC2340110800E15772 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginWithAmazon.framework; path = "../../../Amazon-iOS-SDKs/LoginWithAmazon/LoginWithAmazon.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FFA56FB23400F6200E15772 /* SafariServices.framework in Frameworks */,
+				0FFA56FD2340110800E15772 /* LoginWithAmazon.framework in Frameworks */,
+				0FFA56F923400F5800E15772 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 		0F3D9E8A2327544C0051302A = {
 			isa = PBXGroup;
 			children = (
+				0FFA56F523400C7500E15772 /* Frameworks */,
 				0F3D9E952327544C0051302A /* Workspace */,
 				0F3D9EAA2327544F0051302A /* WorkspaceTests */,
 				0F3D9E942327544C0051302A /* Products */,
@@ -88,7 +98,7 @@
 				0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */,
 				0F3D9EA22327544F0051302A /* Info.plist */,
 				0F3D9EB82331B81D0051302A /* VoiceAssistantViewController.swift */,
-				0F3D9EBA2331D4540051302A /* GoogleTranslate.swift */,
+				0F3D9EBA2331D4540051302A /* AlexaTranslate.swift */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -100,6 +110,16 @@
 				0F3D9EAD2327544F0051302A /* Info.plist */,
 			);
 			path = WorkspaceTests;
+			sourceTree = "<group>";
+		};
+		0FFA56F523400C7500E15772 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FFA56FC2340110800E15772 /* LoginWithAmazon.framework */,
+				0FFA56FA23400F6200E15772 /* SafariServices.framework */,
+				0FFA56F823400F5800E15772 /* Security.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,7 +226,7 @@
 				0F3D9E992327544C0051302A /* ARViewController.swift in Sources */,
 				0F3D9E972327544C0051302A /* AppDelegate.swift in Sources */,
 				0F3D9EB92331B81D0051302A /* VoiceAssistantViewController.swift in Sources */,
-				0F3D9EBB2331D4540051302A /* GoogleTranslate.swift in Sources */,
+				0F3D9EBB2331D4540051302A /* AlexaTranslate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Q3EAA7695;
+				FRAMEWORK_SEARCH_PATHS = "/Users/jamestouri/Documents/Amazon-iOS-SDKs/LoginWithAmazon/";
 				INFOPLIST_FILE = Workspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -388,6 +409,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Q3EAA7695;
+				FRAMEWORK_SEARCH_PATHS = "/Users/jamestouri/Documents/Amazon-iOS-SDKs/LoginWithAmazon/";
 				INFOPLIST_FILE = Workspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

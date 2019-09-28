@@ -8,10 +8,10 @@
 
 import UIKit
 import AVFoundation
+import LoginWithAmazon
 
 class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
     
-    static let voice = SpeechService()
     private let recorder = AVAudioRecorder()
     
 
