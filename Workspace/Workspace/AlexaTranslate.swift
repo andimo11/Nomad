@@ -9,8 +9,8 @@
 import Foundation
 import LoginWithAmazon
 
-class LoginWithAmazonProxy {
-    
+struct Settings {
+    struct Credentials {
+        static let SCOPES = ["profile"]
+    }
 }
-
-

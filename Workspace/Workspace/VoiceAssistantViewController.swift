@@ -10,10 +10,23 @@ import UIKit
 import AVFoundation
 import LoginWithAmazon
 
-class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
+class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate, AIAuthenticationDelegate {
+    
+    func requestDidSucceed(_ apiResult: APIResult) {
+        switch(apiResult.api) {
+        case API.authorizeUser:
+                   print("Authorized")
+                   getAccessToken(delegate: self)
+        default:
+            return
+        }
+    }
+    
+    func requestDidFail(_ errorResponse: APIError) {
+        print("Error: \(String(describing: errorResponse.error.message))")
+    }
     
     private let recorder = AVAudioRecorder()
-    static let sharedInstance = LoginWithAmazonProxy()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +36,12 @@ class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func loginWithAmazon(_ sender: Any) {
-        AIMobileLib.authorizeUser(forScopes: ["profile", "postal_code"], delegate: self as? AIAuthenticationDelegate)
+        AIMobileLib.authorizeUser(forScopes: ["profile", "postal_code"], delegate: self as AIAuthenticationDelegate)
+        
+    }
+    
+    func getAccessToken(delegate: AIAuthenticationDelegate) {
+        AIMobileLib.getAccessToken(forScopes: Settings.Credentials.SCOPES, withOverrideParams: nil, delegate: delegate)
     }
     
     
