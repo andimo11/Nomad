@@ -18,19 +18,20 @@ class ARViewController: UIViewController {
     
     var counter = 1
     
-    override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
-        
         let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
+        let myURL = URL(string:"https://www.apple.com")
+        let myRequest = URLRequest(url: myURL!)
+        
+        let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
+        view = webView
         webView.uiDelegate = self
 
-        let myURL = URL(string: "https://www.reddit.com")
-        let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +39,7 @@ class ARViewController: UIViewController {
         sceneView.session.run(configeration)
         
     }
+    
     
     
     @IBAction func incrementButton(_ sender: Any) {
