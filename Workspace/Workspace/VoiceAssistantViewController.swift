@@ -40,13 +40,14 @@ class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate, AIA
         let myrequest = AMZNAuthorizeRequest()
         myrequest.scopes.append(AMZNProfileScope.profile())
         myrequest.interactiveStrategy = AMZNInteractiveStrategy.auto
-        let sharedManager: AMZNAuthorizationManager = AMZNAuthorizationManager()
+        let sharedManager = AMZNAuthorizationManager()
         
         sharedManager.authorize(myrequest) { (result: AMZNAuthorizeResult?, userDidCancel: Bool, error: Error?) in
             if (error != nil) {
                 print(error ?? "There is an error")
             } else {
-                
+                print(result?.token)
+
             }
         }
     }
