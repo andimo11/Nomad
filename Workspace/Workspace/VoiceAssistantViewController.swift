@@ -11,7 +11,7 @@ import AVFoundation
 import LoginWithAmazon
 
 class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate, AIAuthenticationDelegate {
-    
+        
     func requestDidSucceed(_ apiResult: APIResult) {
         switch(apiResult.api) {
         case API.authorizeUser:
@@ -36,13 +36,26 @@ class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate, AIA
     
     
     @IBAction func loginWithAmazon(_ sender: Any) {
-        AIMobileLib.authorizeUser(forScopes: ["profile", "postal_code"], delegate: self as AIAuthenticationDelegate)
+//        AIMobileLib.authorizeUser(forScopes: ["profile", "postal_code"], delegate: self as AIAuthenticationDelegate)
+        let myrequest = AMZNAuthorizeRequest()
+        myrequest.scopes.append(AMZNProfileScope.profile())
+        myrequest.interactiveStrategy = AMZNInteractiveStrategy.auto
+        let sharedManager: AMZNAuthorizationManager = AMZNAuthorizationManager()
         
+        sharedManager.authorize(myrequest) { (result: AMZNAuthorizeResult?, userDidCancel: Bool, error: Error?) in
+            if (error != nil) {
+                print(error ?? "There is an error")
+            } else {
+                
+            }
+        }
     }
     
     func getAccessToken(delegate: AIAuthenticationDelegate) {
         AIMobileLib.getAccessToken(forScopes: Settings.Credentials.SCOPES, withOverrideParams: nil, delegate: delegate)
     }
+    
+
     
     
 
