@@ -21,7 +21,9 @@ A tool which enables the user to customize a virtual workspace using their smart
     
  * Designed for iOS using Swift and Xcode 11 GM seed
  
- ## Resources
-https://research.fb.com/wp-content/uploads/2019/06/VR-Facial-Animation-via-Multiview-Image-Translation.pdf
+ ## Resources and Research
+https://research.fb.com/publications/vr-facial-animation-via-multiview-image-translation/
+https://research.fb.com/programs/the-2019-openeds-workshop-eye-tracking-for-vr-and-ar/
+
 
 ## Questions
