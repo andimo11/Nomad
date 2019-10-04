@@ -11,51 +11,40 @@ import AVFoundation
 import LoginWithAmazon
 
 class VoiceAssistantViewController: UIViewController, AVAudioPlayerDelegate, AIAuthenticationDelegate {
-        
-    func requestDidSucceed(_ apiResult: APIResult) {
-        switch(apiResult.api) {
-        case API.authorizeUser:
-                   print("Authorized")
-                   getAccessToken(delegate: self)
-        default:
-            return
-        }
-    }
     
-    func requestDidFail(_ errorResponse: APIError) {
-        print("Error: \(String(describing: errorResponse.error.message))")
-    }
+    let lwa = LoginWithAmazonProxy.sharedInstance
     
     private let recorder = AVAudioRecorder()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        lwa.login(delegate: self)
         
     }
     
     
     @IBAction func loginWithAmazon(_ sender: Any) {
-//        AIMobileLib.authorizeUser(forScopes: ["profile", "postal_code"], delegate: self as AIAuthenticationDelegate)
-        let myrequest = AMZNAuthorizeRequest()
-        myrequest.scopes.append(AMZNProfileScope.profile())
-        myrequest.interactiveStrategy = AMZNInteractiveStrategy.auto
-        let sharedManager = AMZNAuthorizationManager()
-        
-        sharedManager.authorize(myrequest) { (result: AMZNAuthorizeResult?, userDidCancel: Bool, error: Error?) in
-            if (error != nil) {
-                print(error ?? "There is an error")
-            } else {
-                print(result?.token)
-
-            }
-        }
+       lwa.login(delegate: self)
     }
     
     func getAccessToken(delegate: AIAuthenticationDelegate) {
-        AIMobileLib.getAccessToken(forScopes: Settings.Credentials.SCOPES, withOverrideParams: nil, delegate: delegate)
+        lwa.getAccessToken(delegate: self)
     }
     
+    func requestDidSucceed(_ apiResult: APIResult) {
+         switch(apiResult.api) {
+         case API.authorizeUser:
+                    print("Authorized")
+                    getAccessToken(delegate: self)
+         default:
+             return
+         }
+     }
+    
+    func requestDidFail(_ errorResponse: APIError) {
+        print("Error: \(String(describing: errorResponse.error.message))")
+    }
 
     
     
