@@ -28,5 +28,10 @@ https://research.fb.com/publications/vr-facial-animation-via-multiview-image-tra
 
 https://research.fb.com/programs/the-2019-openeds-workshop-eye-tracking-for-vr-and-ar/
 
+https://ieeexplore.ieee.org/abstract/document/7823595
+
+https://ai.googleblog.com/2017/06/mobilenets-open-source-models-for.html
+
+https://github.com/eh3rrera/ARKitGameSpriteKit/blob/master/ARSpriteKit/Scene.swift
 
 ## Questions
