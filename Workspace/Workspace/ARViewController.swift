@@ -9,16 +9,19 @@
 import UIKit
 import ARKit
 import WebKit
+import SpriteKit
 
 // Where the logic will be. There are 2 buttons. To add choose how many screens they want. They can increment and decrement
-class ARViewController: UIViewController {
+class ARViewController: UIViewController, WKUIDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
     
     var counter = 1
     
-   override func viewDidLoad() {
+    var webView: UIView!
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
@@ -29,7 +32,6 @@ class ARViewController: UIViewController {
         let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
         view = webView
         webView.uiDelegate = self
-
         webView.load(myRequest)
 
     }
@@ -41,23 +43,22 @@ class ARViewController: UIViewController {
     }
     
     
-    
     @IBAction func incrementButton(_ sender: Any) {
         if counter <= 5 {
             counter += 1
             self.numberOfScreens.text = String(counter)
 
         }
+
+//        //creates webView node
+        let displayPlane = SCNPlane(width: 0.7,height: 0.5)
+        displayPlane.firstMaterial?.diffuse.contents = self.webView
+        let webScreen = SCNNode(geometry: displayPlane)
+        webScreen.eulerAngles.x = -.pi / 2
+        sceneView.scene.rootNode.addChildNode(webScreen)
         
-        //creates webView node
-        let webScreen = SCNPlane(width: 0.7,height: 0.5)
-        webScreen.firstMaterial?.diffuse.contents = self.webView
-        let webScreenNode = SCNNode(geometry: webScreen)
-        webScreenNode.eulerAngles.x = -.pi / 2
-        node.addChildNode(webScreenNode)
-        
-        //puts screen where camera is facing
-        let cc = getCameraCoordinates(scenceView: sceneView)
+//        //puts screen where camera is facing
+        let cc = getCameraCoordinates(sceneView: sceneView)
         webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
         
     }
@@ -91,4 +92,10 @@ class ARViewController: UIViewController {
         
     }
 }
+
+////communicate between webView and arKit for browser manipulation
+//protocol UIWebViewDelegate{
+//    requirement
+//}
+
 
