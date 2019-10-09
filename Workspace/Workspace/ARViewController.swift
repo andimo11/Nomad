@@ -25,14 +25,6 @@ class ARViewController: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
-        let webConfiguration = WKWebViewConfiguration()
-        let myURL = URL(string:"https://www.apple.com")
-        let myRequest = URLRequest(url: myURL!)
-        
-        let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
-        view = webView
-        webView.uiDelegate = self
-        webView.load(myRequest)
 
     }
     
@@ -60,6 +52,15 @@ class ARViewController: UIViewController, WKUIDelegate {
 //        //puts screen where camera is facing
         let cc = getCameraCoordinates(sceneView: sceneView)
         webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
+        
+        let webConfiguration = WKWebViewConfiguration()
+        let myURL = URL(string:"https://www.apple.com")
+        let myRequest = URLRequest(url: myURL!)
+        
+        let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 640, height: 480), configuration: webConfiguration)
+        view = webView
+        webView.uiDelegate = self
+        webView.load(myRequest)
         
     }
     
