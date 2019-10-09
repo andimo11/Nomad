@@ -5,14 +5,13 @@
 //  Created by James touri and Alexander Dimopoulos on 9/9/19.
 //  Copyright © 2019 jamestouri and alexanderdimopoulos. All rights reserved.
 //
-
 import UIKit
 import ARKit
 import WebKit
 import SpriteKit
 
 // Where the logic will be. There are 2 buttons. To add choose how many screens they want. They can increment and decrement
-class ARViewController: UIViewController, WKUIDelegate {
+class ARViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
@@ -48,10 +47,10 @@ class ARViewController: UIViewController, WKUIDelegate {
         
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
-        webView.uiDelegate = self
-        webView.load(myRequest)
+        webView.loadRequest(myRequest)
+        self.view .addSubview(webView)
         
-        displayPlane.firstMaterial?.diffuse.contents = self.webView
+        displayPlane.firstMaterial?.diffuse.contents = webView
         
         let webScreen = SCNNode(geometry: displayPlane)
         webScreen.eulerAngles.x = -.pi / 2
@@ -97,5 +96,3 @@ class ARViewController: UIViewController, WKUIDelegate {
 //protocol UIWebViewDelegate{
 //    requirement
 //}
-
-
