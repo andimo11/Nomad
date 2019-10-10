@@ -44,7 +44,7 @@ class ARViewController: UIViewController {
         
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
-        UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: "https://developer.apple.com")!))
+        UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: "https://www.jpl.nasa.gov")!))
         self.view .addSubview(webView)
         
         displayPlane.firstMaterial?.diffuse.contents = webView
