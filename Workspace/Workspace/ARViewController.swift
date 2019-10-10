@@ -41,13 +41,10 @@ class ARViewController: UIViewController {
 
 //        //creates webView node
         var webView: UIWebView!
-
-        let myURL = URL(string:"https://www.apple.com")
-        let myRequest = URLRequest(url: myURL!)
         
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
-        webView.loadRequest(myRequest)
+        UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: "https://developer.apple.com")!))
         self.view .addSubview(webView)
         
         displayPlane.firstMaterial?.diffuse.contents = webView
