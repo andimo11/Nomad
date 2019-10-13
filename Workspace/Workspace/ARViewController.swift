@@ -41,6 +41,7 @@ class ARViewController: UIViewController {
 
 //        //creates webView node
         var webView: UIWebView!
+        webView.delegate = self
         
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
