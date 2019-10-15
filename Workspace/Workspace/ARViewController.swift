@@ -70,6 +70,7 @@ class ARViewController: UIViewController {
             self.numberOfScreens.text = String(counter)
 
         }
+
     }
     
     //variables with view location data
@@ -92,6 +93,9 @@ class ARViewController: UIViewController {
         return cc
         
     }
+
+    
+
 }
 
 ////communicate between webView and arKit for browser manipulation
