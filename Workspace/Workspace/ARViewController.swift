@@ -39,27 +39,26 @@ class ARViewController: UIViewController {
 
         }
 
-//        //creates webView node
+        //creates webView node
         var webView: UIWebView!
-        
+        //creates the plane where the screen will be displayed
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
-//        UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: //"https://www.jpl.nasa.gov")!))
-        //if this top one doesn't work, remove line 48 and try this one 
+        //UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: //"https://www.jpl.nasa.gov")!))
         let url = URL(string: "https://www.jpl.nasa.gov")
         let request = URLRequest(url: url!)
          webView.loadRequest(request)
         
-        
         self.view .addSubview(webView)
-        
+        //projects the contents of the webView onto the plane
         displayPlane.firstMaterial?.diffuse.contents = webView
-        
+        //creates node
         let webScreen = SCNNode(geometry: displayPlane)
+        //tilts the plane from a horizontal to vertical position
         webScreen.eulerAngles.x = -.pi / 2
         sceneView.scene.rootNode.addChildNode(webScreen)
         
-//        //puts screen where camera is facing
+        //puts screen where camera is facing
         let cc = getCameraCoordinates(sceneView: sceneView)
         webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
         
