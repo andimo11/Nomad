@@ -5,6 +5,7 @@
 //  Created by James touri and Alexander Dimopoulos on 9/9/19.
 //  Copyright © 2019 jamestouri and alexanderdimopoulos. All rights reserved.
 //
+
 import UIKit
 import ARKit
 import WebKit
@@ -29,8 +30,7 @@ class ARViewController: UIViewController {
         let configeration = ARWorldTrackingConfiguration()
         sceneView.session.run(configeration)
         
-    }
-    
+    } 
     
     @IBAction func incrementButton(_ sender: Any) {
         if counter <= 5 {
@@ -47,8 +47,11 @@ class ARViewController: UIViewController {
         //UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: //"https://www.jpl.nasa.gov")!))
         let url = URL(string: "https://www.jpl.nasa.gov")
         let request = URLRequest(url: url!)
-         webView.loadRequest(request)
         
+       //******* tried unwrapping here ******* remove ! if crashes
+         webView.loadRequest(request!)
+       //******************************
+
         self.view .addSubview(webView)
         //projects the contents of the webView onto the plane
         displayPlane.firstMaterial?.diffuse.contents = webView
@@ -80,6 +83,7 @@ class ARViewController: UIViewController {
         var z = Float()
         
     }
+    
     //call this function to get current location
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
         let cameraTransform = sceneView.session.currentFrame?.camera.transform
@@ -93,9 +97,7 @@ class ARViewController: UIViewController {
         return cc
         
     }
-
     
-
 }
 
 ////communicate between webView and arKit for browser manipulation
