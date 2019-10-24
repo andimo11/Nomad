@@ -3,7 +3,7 @@
 //  Workspace
 //
 //  Created by James touri and Alexander Dimopoulos on 9/9/19.
-//  Copyright © 2019 jamestouri and alexanderdimopoulos. All rights reserved.
+//  Copyright © 2019 jamestouri & alexanderdimopoulos. All rights reserved.
 //
 
 import UIKit
@@ -44,13 +44,10 @@ class ARViewController: UIViewController {
         //creates the plane where the screen will be displayed
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
-        //UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: //"https://www.jpl.nasa.gov")!))
-        let url = URL(string: "https://www.jpl.nasa.gov")
-        let request = URLRequest(url: url!)
+        let webUrl : NSURL = NSURL(string: "https://www.jpl.nasa.gov")!
+        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
         
-       //******* tried unwrapping here ******* remove ! if crashes
-         webView.loadRequest(request!)
-       //******************************
+        webView.loadRequest(request as URLRequest)
 
         self.view .addSubview(webView)
         //projects the contents of the webView onto the plane
