@@ -12,7 +12,7 @@ import WebKit
 import SpriteKit
 
 // Where the logic will be. There are 2 buttons. To add choose how many screens they want. They can increment and decrement
-class ARViewController: UIViewController {
+class ARViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
@@ -38,9 +38,12 @@ class ARViewController: UIViewController {
             self.numberOfScreens.text = String(counter)
 
         }
+        let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
 
         //creates webView node
-        var webView: UIWebView!
+        var webView: UIWebView! = UIWebView(frame: rect)
+        self.view .addSubview(webView!)
+        
         //creates the plane where the screen will be displayed
         let displayPlane = SCNPlane(width: 0.7,height: 0.5)
         
@@ -49,7 +52,6 @@ class ARViewController: UIViewController {
         
         webView.loadRequest(request as URLRequest)
 
-        self.view .addSubview(webView)
         //projects the contents of the webView onto the plane
         displayPlane.firstMaterial?.diffuse.contents = webView
         //creates node
