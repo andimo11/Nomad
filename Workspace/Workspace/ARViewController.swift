@@ -38,32 +38,33 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             self.numberOfScreens.text = String(counter)
 
         }
-        let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
-
-        //creates webView node
+        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
         var webView: WKWebView! = WKWebView(frame: rect)
-        self.view .addSubview(webView!)
-        
-        //creates the plane where the screen will be displayed
-        let displayPlane = SCNPlane(width: 0.7,height: 0.5)
-        
-        let webUrl : NSURL = NSURL(string: "https://www.jpl.nasa.gov")!
-        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
 
-        webView.load(request as URLRequest)
-        //projects the contents of the webView onto the plane
-        displayPlane.firstMaterial?.diffuse.contents = webView
-        //creates node
-        let webScreen = SCNNode(geometry: displayPlane)
-        //tilts the plane from a horizontal to vertical position
-        webScreen.eulerAngles.x = -.pi / 2
-        sceneView.scene.rootNode.addChildNode(webScreen)
+        DispatchQueue.main.async {
+            //creates webView node
+            self.view .addSubview(webView!)
+            
+            //creates the plane where the screen will be displayed
+            let displayPlane = SCNPlane(width: 0.7,height: 0.5)
+            
+            let webUrl : NSURL = NSURL(string: "https://google.com")!
+            let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
 
-        //puts screen where camera is facing
-        let cc = getCameraCoordinates(sceneView: sceneView)
-
-        webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
-
+            webView.load(request as URLRequest)
+            //projects the contents of the webView onto the plane
+//            displayPlane.firstMaterial?.diffuse.contents = webView
+//            //creates node
+//            let webScreen = SCNNode(geometry: displayPlane)
+//            //tilts the plane from a horizontal to vertical position
+//            webScreen.eulerAngles.x = -.pi / 2
+//            self.sceneView.scene.rootNode.addChildNode(webScreen)
+//
+//            //puts screen where camera is facing
+//            let cc = self.getCameraCoordinates(sceneView: self.sceneView)
+//
+//            webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
+        }
         
     }
     
