@@ -41,7 +41,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
 
         //creates webView node
-        var webView: UIWebView! = UIWebView(frame: rect)
+        var webView: WKWebView! = WKWebView(frame: rect)
         self.view .addSubview(webView!)
         
         //creates the plane where the screen will be displayed
@@ -49,9 +49,8 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         
         let webUrl : NSURL = NSURL(string: "https://www.jpl.nasa.gov")!
         let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-        
-        webView.loadRequest(request as URLRequest)
 
+        webView.load(request as URLRequest)
         //projects the contents of the webView onto the plane
         displayPlane.firstMaterial?.diffuse.contents = webView
         //creates node
@@ -59,10 +58,12 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         //tilts the plane from a horizontal to vertical position
         webScreen.eulerAngles.x = -.pi / 2
         sceneView.scene.rootNode.addChildNode(webScreen)
-        
+
         //puts screen where camera is facing
         let cc = getCameraCoordinates(sceneView: sceneView)
+
         webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
+
         
     }
     
