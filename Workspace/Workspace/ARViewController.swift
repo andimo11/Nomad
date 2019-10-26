@@ -47,6 +47,8 @@ class ARViewController: UIViewController {
         let webUrl : NSURL = NSURL(string: "https://www.jpl.nasa.gov")!
         let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
         
+        //****issue here****
+        //not sure why request is nil
         webView.loadRequest(request as URLRequest)
 
         self.view .addSubview(webView)
