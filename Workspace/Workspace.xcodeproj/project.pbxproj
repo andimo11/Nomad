@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08B46C2D2364A26800E0148A /* SceneKit Asset Catalog.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B46C2C2364A26800E0148A /* SceneKit Asset Catalog.scnassets */; };
 		0F3D9E972327544C0051302A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9E962327544C0051302A /* AppDelegate.swift */; };
 		0F3D9E992327544C0051302A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9E982327544C0051302A /* ARViewController.swift */; };
 		0F3D9E9C2327544C0051302A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D9E9A2327544C0051302A /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08B46C2C2364A26800E0148A /* SceneKit Asset Catalog.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = "SceneKit Asset Catalog.scnassets"; sourceTree = "<group>"; };
 		0F3D9E932327544C0051302A /* Workspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3D9E962327544C0051302A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F3D9E982327544C0051302A /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				0F3D9E962327544C0051302A /* AppDelegate.swift */,
 				0F3D9E982327544C0051302A /* ARViewController.swift */,
 				0F3D9E9A2327544C0051302A /* Main.storyboard */,
+				08B46C2C2364A26800E0148A /* SceneKit Asset Catalog.scnassets */,
 				0F3D9E9D2327544F0051302A /* Assets.xcassets */,
 				0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */,
 				0F3D9EA22327544F0051302A /* Info.plist */,
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08B46C2D2364A26800E0148A /* SceneKit Asset Catalog.scnassets in Resources */,
 				0F3D9EA12327544F0051302A /* LaunchScreen.storyboard in Resources */,
 				0F3D9E9E2327544F0051302A /* Assets.xcassets in Resources */,
 				0F3D9E9C2327544C0051302A /* Main.storyboard in Resources */,
