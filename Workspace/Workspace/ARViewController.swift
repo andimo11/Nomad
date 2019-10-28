@@ -26,7 +26,6 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         
         
         
-        let screen =
 
     }
     
@@ -43,31 +42,36 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 
         }
         let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-        var webView: WKWebView! = WKWebView(frame: rect)
+        var webView: UIWebView! = UIWebView(frame: rect)
 
         DispatchQueue.main.async {
             //creates webView node
-            self.view .addSubview(webView!)
+            self.view.addSubview(webView!)
             
             //creates the plane where the screen will be displayed
-            let displayPlane = SCNPlane(width: 0.7,height: 0.5)
+            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
             
             let webUrl : NSURL = NSURL(string: "https://google.com")!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
 
-            webView.load(request as URLRequest)
+            webView.loadRequest(request as URLRequest)
+            
             //projects the contents of the webView onto the plane
-//            displayPlane.firstMaterial?.diffuse.contents = webView
-//            //creates node
-//            let webScreen = SCNNode(geometry: displayPlane)
-//            //tilts the plane from a horizontal to vertical position
+            displayPlane.firstMaterial?.diffuse.contents = webView
+            
+            //creates nodeø
+            let webScreen = SCNNode(geometry: displayPlane)
+            
+            //tilts the plane from a horizontal to vertical position
 //            webScreen.eulerAngles.x = -.pi / 2
-//            self.sceneView.scene.rootNode.addChildNode(webScreen)
-//
-//            //puts screen where camera is facing
-//            let cc = self.getCameraCoordinates(sceneView: self.sceneView)
-//
-//            webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
+            
+            //puts screen where camera is facing
+            let cc = self.getCameraCoordinates(sceneView: self.sceneView)
+
+            webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
+            self.sceneView.scene.rootNode.addChildNode(webScreen)
+
+
         }
         
     }
