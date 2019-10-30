@@ -48,6 +48,11 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             //creates the plane where the screen will be displayed
             let displayPlane = SCNPlane(width: 0.5,height: 0.3)
             
+//James, ignore this
+//**********//Trying to initialize plane from custom screen**********
+//            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
+            //^ top replaced bottom v
+
             let webUrl : NSURL = NSURL(string: "https://google.com")!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
 
@@ -65,8 +70,9 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             //puts screen where camera is facing
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
 
-//*********I adjusted the position of the frame along the z axis. If this does not work then replace '+' with '-' *****************!***********//
-            webScreen.position = SCNVector3(cc.x, cc.y, cc.z + 100)
+//JAMES! Try this !!!
+//*********I adjusted the position of the frame along the z axis. If this does not work then replace '-' with '+' *****************!***********//
+            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 100)
                                                                 //May need to change int value//
 
             self.sceneView.scene.rootNode.addChildNode(webScreen)
