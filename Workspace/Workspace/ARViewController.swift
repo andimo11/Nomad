@@ -64,17 +64,12 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             //creates nodeø
             let webScreen = SCNNode(geometry: displayPlane)
             
-            //tilts the plane from a horizontal to vertical position
-//            webScreen.eulerAngles.x = -.pi / 2
-            
             //puts screen where camera is facing
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
 
-//JAMES! Try this !!!
-//*********I adjusted the position of the frame along the z axis. If this does not work then replace '-' with '+' *****************!***********//
+            //places the screen where the camera is facing, z axis is altered to push screen back
             webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 100)
-                                                                //May need to change int value//
-
+                                    
             self.sceneView.scene.rootNode.addChildNode(webScreen)
 
         }
@@ -98,7 +93,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         
     }
     
-    //call this function to get current location
+    //call this function to get current location * other transformation code
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
         let cameraTransform = sceneView.session.currentFrame?.camera.transform
         let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
@@ -109,6 +104,9 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         cc.z = cameraCoordinates.translation.z
         
         return cc
+        
+         //tilts the plane from a horizontal to vertical position
+        //            webScreen.eulerAngles.x = -.pi / 2
         
     }
     
