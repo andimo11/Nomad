@@ -66,8 +66,9 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
 
 //*********I adjusted the position of the frame along the z axis. If this does not work then replace '+' with '-' *****************!***********//
-            webScreen.position = SCNVector3(cc.x, cc.y, cc.z + 100)
+            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
                                                                 //May need to change int value//
+//            webScreen.position = SCNVector3()
 
             self.sceneView.scene.rootNode.addChildNode(webScreen)
 
@@ -101,7 +102,9 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         cc.x = cameraCoordinates.translation.x
         cc.y = cameraCoordinates.translation.y
         cc.z = cameraCoordinates.translation.z
-        
+        print(cc.x)
+        print(cc.y)
+        print(cc.z)
         return cc
         
     }
