@@ -24,9 +24,6 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
         
-        
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,9 +65,11 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             //puts screen where camera is facing
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
 
-            webScreen.position = SCNVector3(cc.x, cc.y, cc.z)
-            self.sceneView.scene.rootNode.addChildNode(webScreen)
+//*********I adjusted the position of the frame along the z axis. If this does not work then replace '+' with '-' *****************!***********//
+            webScreen.position = SCNVector3(cc.x, cc.y, cc.z + 100)
+                                                                //May need to change int value//
 
+            self.sceneView.scene.rootNode.addChildNode(webScreen)
 
         }
         
@@ -108,8 +107,3 @@ class ARViewController: UIViewController, UIWebViewDelegate {
     }
     
 }
-
-////communicate between webView and arKit for browser manipulation
-//protocol UIWebViewDelegate{
-//    requirement
-//}
