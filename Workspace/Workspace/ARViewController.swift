@@ -68,7 +68,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
 
             //places the screen where the camera is facing, z axis is altered to push screen back
-            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 100)
+            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
                                     
             self.sceneView.scene.rootNode.addChildNode(webScreen)
 
