@@ -18,7 +18,8 @@ class ARViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var numberOfScreens: UILabel!
     
     var counter = 1
-        
+    @IBOutlet weak var uiImplementView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,6 +29,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         let configeration = ARWorldTrackingConfiguration()
         sceneView.session.run(configeration)
+        uiImplementView.isHidden = true
     }
     
     @objc func tapped(_ sender: UITapGestureRecognizer) {
@@ -73,7 +75,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         //need to remove nodes
     }
     
-        @IBAction func incrementButton(_ sender: Any) {
+    @IBAction func incrementButton(_ sender: Any) {
             if counter <= 5 {
                 counter += 1
                 self.numberOfScreens.text = String(counter)
