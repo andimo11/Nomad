@@ -23,15 +23,58 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let configeration = ARWorldTrackingConfiguration()
         sceneView.session.run(configeration)
-        
-    } 
+    }
     
+    @objc func tapped(_ sender: UITapGestureRecognizer) {
+            let location = sender.location(in: sender.view)
+            guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
+                  let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
+                  planeAnchor.alignment == .vertical else { return }
+            let anchor = ARAnchor(transform: hitTestResult.worldTransform)
+            self.sceneView.session.add(anchor: anchor)
+    }
+
+    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
+        var webView: UIWebView! = UIWebView(frame: rect)
+        let webUrl : NSURL = NSURL(string: "https://google.com")!
+        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
+
+        //creates webView node
+        self.view.addSubview(webView!)
+
+        //creates the plane where the screen will be displayed
+        let displayPlane = SCNPlane(width: 0.5,height: 0.3)
+
+        webView.loadRequest(request as URLRequest)
+
+        //projects the contents of the webView onto the plane
+        displayPlane.firstMaterial?.diffuse.contents = webView
+
+        //creates nodeø
+        let webScreen = SCNNode(geometry: displayPlane)
+      
+        webScreen.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
+        
+        return webScreen
+    }
+
+    @IBAction func decrementButton(_ sender: Any) {
+        if counter >= 2 {
+            counter -= 1
+            self.numberOfScreens.text = String(counter)
+        }
+        
+        //need to remove nodes
+    }
+}
+
+//***not being used***
 //    @IBAction func incrementButton(_ sender: Any) {
 //        if counter <= 5 {
 //            counter += 1
@@ -76,64 +119,22 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 //
 //    }
     
-    @IBAction func decrementButton(_ sender: Any) {
-        if counter >= 2 {
-            counter -= 1
-            self.numberOfScreens.text = String(counter)
-        }
-    }
-    
-    //variables with view location data
-    struct myCameraCoordinates {
-        var x = Float()
-        var y = Float()
-        var z = Float()
-    }
-    
-    //call this function to get current location * other transformation code
-    func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
-        let cameraTransform = sceneView.session.currentFrame?.camera.transform
-        let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
-        
-        var cc = myCameraCoordinates()
-        cc.x = cameraCoordinates.translation.x
-        cc.y = cameraCoordinates.translation.y
-        cc.z = cameraCoordinates.translation.z
-        
-        return cc
-    }
-    
-    @objc func tapped(_ sender: UITapGestureRecognizer) {
-        let location = sender.location(in: sender.view)
-        guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
-              let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
-              planeAnchor.alignment == .vertical else { return }
-        let anchor = ARAnchor(transform: hitTestResult.worldTransform)
-        sceneView.session.add(anchor: anchor)
-        
-        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-        var webView: UIWebView! = UIWebView(frame: rect)
-        let webUrl : NSURL = NSURL(string: "https://google.com")!
-        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-        
-        DispatchQueue.main.async {
-            //creates webView node
-            self.view.addSubview(webView!)
-    
-            //creates the plane where the screen will be displayed
-            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
+//call this function to get current location * other transformation code
+//    func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
+//        let cameraTransform = sceneView.session.currentFrame?.camera.transform
+//        let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
+//
+//        var cc = myCameraCoordinates()
+//        cc.x = cameraCoordinates.translation.x
+//        cc.y = cameraCoordinates.translation.y
+//        cc.z = cameraCoordinates.translation.z
+//
+//        return cc
+//    }
 
-            webView.loadRequest(request as URLRequest)
-    
-            //projects the contents of the webView onto the plane
-            displayPlane.firstMaterial?.diffuse.contents = webView
-    
-            //creates nodeø
-            let webScreen = SCNNode(geometry: displayPlane)
-            
-            webScreen.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
-    
-            self.sceneView.scene.rootNode.addChildNode(webScreen)
-            }
-    }
-}
+//variables with view location data
+//struct myCameraCoordinates {
+//    var x = Float()
+//    var y = Float()
+//    var z = Float()
+//}
