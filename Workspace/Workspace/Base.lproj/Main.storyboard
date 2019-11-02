@@ -44,24 +44,45 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdc-5I-cyw">
-                                <rect key="frame" x="20" y="522" width="374" height="262"/>
+                                <rect key="frame" x="20" y="264" width="374" height="262"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-rB-wr5">
+                                        <rect key="frame" x="172" y="116" width="30" height="30"/>
+                                        <state key="normal" title="Go"/>
+                                        <connections>
+                                            <action selector="createARView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Let-rK-iSD"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbt-dp-WiL">
+                                        <rect key="frame" x="8" y="30" width="358" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="leading" secondItem="Sdc-5I-cyw" secondAttribute="leadingMargin" id="2A2-06-sSy"/>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="top" secondItem="Sdc-5I-cyw" secondAttribute="top" constant="30" id="RTL-ys-8c1"/>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="trailing" secondItem="Sdc-5I-cyw" secondAttribute="trailingMargin" id="sr4-Xr-xkX"/>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="centerX" secondItem="fTo-rB-wr5" secondAttribute="centerX" id="uly-y7-aB0"/>
+                                    <constraint firstItem="fTo-rB-wr5" firstAttribute="top" secondItem="qbt-dp-WiL" secondAttribute="bottom" constant="52" id="xbe-Ko-ObL"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="centerX" secondItem="bj9-AX-fHX" secondAttribute="centerX" id="1rk-h6-bEQ"/>
                             <constraint firstItem="ZBY-Wv-G3P" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4EP-Gb-GR7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tvj-5K-kiv" secondAttribute="trailing" constant="64" id="9Oz-9a-1vT"/>
                             <constraint firstAttribute="bottom" secondItem="DbV-ZF-qRD" secondAttribute="bottom" constant="19" id="9UU-z2-D8d"/>
+                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Avp-mh-yW4"/>
                             <constraint firstItem="ZBY-Wv-G3P" firstAttribute="leading" secondItem="DbV-ZF-qRD" secondAttribute="trailing" constant="82" id="C1L-zY-jOW"/>
+                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="centerX" secondItem="bj9-AX-fHX" secondAttribute="centerX" id="Hmb-2Q-WAT"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
                             <constraint firstAttribute="bottom" secondItem="tvj-5K-kiv" secondAttribute="bottom" constant="19" id="aVD-y9-5yn"/>
-                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bWR-oa-vse"/>
-                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="478" id="dek-2X-WOw"/>
-                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="top" secondItem="Sdc-5I-cyw" secondAttribute="bottom" constant="37" id="ghe-Mq-tDa"/>
+                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="fgG-u2-OUW"/>
                             <constraint firstItem="DbV-ZF-qRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="iJL-GD-J2b"/>
+                            <constraint firstAttribute="bottom" secondItem="Sdc-5I-cyw" secondAttribute="bottom" constant="370" id="iYt-Xg-gnK"/>
                             <constraint firstItem="tvj-5K-kiv" firstAttribute="baseline" secondItem="DbV-ZF-qRD" secondAttribute="baseline" id="jKb-w1-LoC"/>
                             <constraint firstAttribute="bottom" secondItem="bj9-AX-fHX" secondAttribute="bottom" id="nos-8c-gMW"/>
                             <constraint firstAttribute="trailing" secondItem="bj9-AX-fHX" secondAttribute="trailing" id="pQS-t8-7Mu"/>
@@ -73,6 +94,7 @@
                         <outlet property="numberOfScreens" destination="ZBY-Wv-G3P" id="JEf-1R-sGu"/>
                         <outlet property="sceneView" destination="bj9-AX-fHX" id="Uum-Q4-MR9"/>
                         <outlet property="uiImplementView" destination="Sdc-5I-cyw" id="NZI-fl-TR8"/>
+                        <outlet property="urlTextField" destination="qbt-dp-WiL" id="2LC-LU-Eyk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

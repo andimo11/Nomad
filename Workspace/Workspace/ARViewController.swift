@@ -16,14 +16,16 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
+    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var uiImplementView: UIView!
     
     var counter = 1
-    @IBOutlet weak var uiImplementView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
+        urlTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +87,13 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         }
         uiImplementView.isHidden = false
 
+    }
+    
+    @IBAction func createARView(_ sender: Any) {
+        
+        uiImplementView.isHidden = true
+        let givenUrl = "https://" + (urlTextField.text ?? "google.com")
+        
         let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
         var webView: UIWebView! = UIWebView(frame: rect)
 
@@ -100,7 +109,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 //            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
             //^ top replaced bottom v
 
-            let webUrl : NSURL = NSURL(string: "https://google.com")!
+            let webUrl : NSURL = NSURL(string: givenUrl)!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
 
             webView.loadRequest(request as URLRequest)
@@ -121,7 +130,9 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 
         }
 
+        
     }
+    
         
 //    call this function to get current location * other transformation code
         func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
@@ -146,3 +157,9 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 
 //***not being used***
 
+extension UIViewController: UITextFieldDelegate{
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+}
