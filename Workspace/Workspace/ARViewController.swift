@@ -155,7 +155,6 @@ class ARViewController: UIViewController, UIWebViewDelegate {
     }
 }
 
-//***not being used***
 
 extension UIViewController: UITextFieldDelegate{
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
