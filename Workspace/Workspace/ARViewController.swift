@@ -32,57 +32,55 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         
     } 
     
-    @IBAction func incrementButton(_ sender: Any) {
-        if counter <= 5 {
-            counter += 1
-            self.numberOfScreens.text = String(counter)
-
-        }
-        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-        var webView: UIWebView! = UIWebView(frame: rect)
-
-        DispatchQueue.main.async {
-            //creates webView node
-            self.view.addSubview(webView!)
-            
-            //creates the plane where the screen will be displayed
-            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
-            
-//James, ignore this
-//**********//Trying to initialize plane from custom screen**********
-//            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
-            //^ top replaced bottom v
-
-            let webUrl : NSURL = NSURL(string: "https://google.com")!
-            let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-
-            webView.loadRequest(request as URLRequest)
-            
-            //projects the contents of the webView onto the plane
-            displayPlane.firstMaterial?.diffuse.contents = webView
-            
-            //creates nodeø
-            let webScreen = SCNNode(geometry: displayPlane)
-            
-            //puts screen where camera is facing
-            let cc = self.getCameraCoordinates(sceneView: self.sceneView)
-
-            //places the screen where the camera is facing, z axis is altered to push screen back
-            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
-                                    
-            self.sceneView.scene.rootNode.addChildNode(webScreen)
-
-        }
-        
-    }
+//    @IBAction func incrementButton(_ sender: Any) {
+//        if counter <= 5 {
+//            counter += 1
+//            self.numberOfScreens.text = String(counter)
+//
+//        }
+//        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
+//        var webView: UIWebView! = UIWebView(frame: rect)
+//
+//        DispatchQueue.main.async {
+//            //creates webView node
+//            self.view.addSubview(webView!)
+//
+//            //creates the plane where the screen will be displayed
+//            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
+//
+////James, ignore this
+////**********//Trying to initialize plane from custom screen**********
+////            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
+//            //^ top replaced bottom v
+//
+//            let webUrl : NSURL = NSURL(string: "https://google.com")!
+//            let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
+//
+//            webView.loadRequest(request as URLRequest)
+//
+//            //projects the contents of the webView onto the plane
+//            displayPlane.firstMaterial?.diffuse.contents = webView
+//
+//            //creates nodeø
+//            let webScreen = SCNNode(geometry: displayPlane)
+//
+//            //puts screen where camera is facing
+//            let cc = self.getCameraCoordinates(sceneView: self.sceneView)
+//
+//            //places the screen where the camera is facing, z axis is altered to push screen back
+//            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
+//
+//            self.sceneView.scene.rootNode.addChildNode(webScreen)
+//
+//        }
+//
+//    }
     
     @IBAction func decrementButton(_ sender: Any) {
         if counter >= 2 {
             counter -= 1
             self.numberOfScreens.text = String(counter)
-
         }
-
     }
     
     //variables with view location data
@@ -90,7 +88,6 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         var x = Float()
         var y = Float()
         var z = Float()
-        
     }
     
     //call this function to get current location * other transformation code
@@ -104,10 +101,39 @@ class ARViewController: UIViewController, UIWebViewDelegate {
         cc.z = cameraCoordinates.translation.z
         
         return cc
-        
-         //tilts the plane from a horizontal to vertical position
-        //            webScreen.eulerAngles.x = -.pi / 2
-        
     }
     
+    @objc func tapped(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: sender.view)
+        guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
+              let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
+              planeAnchor.alignment == .vertical else { return }
+        let anchor = ARAnchor(transform: hitTestResult.worldTransform)
+        sceneView.session.add(anchor: anchor)
+        
+        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
+        var webView: UIWebView! = UIWebView(frame: rect)
+        let webUrl : NSURL = NSURL(string: "https://google.com")!
+        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
+        
+        DispatchQueue.main.async {
+            //creates webView node
+            self.view.addSubview(webView!)
+    
+            //creates the plane where the screen will be displayed
+            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
+
+            webView.loadRequest(request as URLRequest)
+    
+            //projects the contents of the webView onto the plane
+            displayPlane.firstMaterial?.diffuse.contents = webView
+    
+            //creates nodeø
+            let webScreen = SCNNode(geometry: displayPlane)
+            
+            webScreen.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
+    
+            self.sceneView.scene.rootNode.addChildNode(webScreen)
+            }
+    }
 }
