@@ -73,8 +73,6 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             counter -= 1
             self.numberOfScreens.text = String(counter)
         }
-        
-        //need to remove nodes
     }
     
     
@@ -159,6 +157,7 @@ class ARViewController: UIViewController, UIWebViewDelegate {
 extension UIViewController: UITextFieldDelegate{
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        textField.autocorrectionType = .no
         return true;
     }
 }
