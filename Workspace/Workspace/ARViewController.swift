@@ -12,7 +12,7 @@ import WebKit
 import SpriteKit
 
 // Where the logic will be. There are 2 buttons. To add choose how many screens they want. They can increment and decrement
-class ARViewController: UIViewController, UIWebViewDelegate {
+class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var numberOfScreens: UILabel!
@@ -88,12 +88,47 @@ class ARViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func createARView(_ sender: Any) {
+        forButtonClick()
+    }
+    
+    
+    @IBAction func getRidOfView(_ sender: Any) {
+        uiImplementView.isHidden = true
+    }
+    
         
+//    call this function to get current location * other transformation code
+        func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
+            let cameraTransform = sceneView.session.currentFrame?.camera.transform
+            let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
+    
+            var cc = myCameraCoordinates()
+            cc.x = cameraCoordinates.translation.x
+            cc.y = cameraCoordinates.translation.y
+            cc.z = cameraCoordinates.translation.z
+    
+            return cc
+        }
+
+//    variables with view location data
+    struct myCameraCoordinates {
+        var x = Float()
+        var y = Float()
+        var z = Float()
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        forButtonClick()
+        return true;
+    }
+    
+    private func forButtonClick() {
         uiImplementView.isHidden = true
         let givenUrl = "https://" + (urlTextField.text ?? "google.com")
         
         let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-        var webView: UIWebView! = UIWebView(frame: rect)
+        let webView: UIWebView! = UIWebView(frame: rect)
 
         DispatchQueue.main.async {
             //creates webView node
@@ -127,37 +162,8 @@ class ARViewController: UIViewController, UIWebViewDelegate {
             self.sceneView.scene.rootNode.addChildNode(webScreen)
 
         }
-
-        
-    }
-    
-        
-//    call this function to get current location * other transformation code
-        func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
-            let cameraTransform = sceneView.session.currentFrame?.camera.transform
-            let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
-    
-            var cc = myCameraCoordinates()
-            cc.x = cameraCoordinates.translation.x
-            cc.y = cameraCoordinates.translation.y
-            cc.z = cameraCoordinates.translation.z
-    
-            return cc
-        }
-
-//    variables with view location data
-    struct myCameraCoordinates {
-        var x = Float()
-        var y = Float()
-        var z = Float()
     }
 }
 
 
-extension UIViewController: UITextFieldDelegate{
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        textField.autocorrectionType = .no
-        return true;
-    }
-}
+

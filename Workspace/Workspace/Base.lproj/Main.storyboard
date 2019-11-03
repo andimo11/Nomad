@@ -46,26 +46,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdc-5I-cyw">
                                 <rect key="frame" x="20" y="264" width="374" height="262"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kb-5F-c9g">
+                                        <rect key="frame" x="328" y="7" width="30" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="getRidOfView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ld7-bV-OYq"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-rB-wr5">
-                                        <rect key="frame" x="172" y="116" width="30" height="30"/>
+                                        <rect key="frame" x="172" y="193" width="30" height="30"/>
                                         <state key="normal" title="Go"/>
                                         <connections>
                                             <action selector="createARView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Let-rK-iSD"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbt-dp-WiL">
-                                        <rect key="frame" x="8" y="30" width="358" height="34"/>
+                                        <rect key="frame" x="8" y="114" width="358" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="leading" secondItem="Sdc-5I-cyw" secondAttribute="leadingMargin" id="2A2-06-sSy"/>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="top" secondItem="Sdc-5I-cyw" secondAttribute="top" constant="30" id="RTL-ys-8c1"/>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="trailing" secondItem="Sdc-5I-cyw" secondAttribute="trailingMargin" id="sr4-Xr-xkX"/>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="centerX" secondItem="fTo-rB-wr5" secondAttribute="centerX" id="uly-y7-aB0"/>
-                                    <constraint firstItem="fTo-rB-wr5" firstAttribute="top" secondItem="qbt-dp-WiL" secondAttribute="bottom" constant="52" id="xbe-Ko-ObL"/>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="trailing" secondItem="Sdc-5I-cyw" secondAttribute="trailingMargin" id="7ty-vL-be6"/>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="centerY" secondItem="Sdc-5I-cyw" secondAttribute="centerY" id="AdM-pw-gKm"/>
+                                    <constraint firstItem="fTo-rB-wr5" firstAttribute="top" secondItem="qbt-dp-WiL" secondAttribute="bottom" constant="45" id="DqK-7q-NnB"/>
+                                    <constraint firstItem="8kb-5F-c9g" firstAttribute="top" secondItem="Sdc-5I-cyw" secondAttribute="top" constant="7" id="PEB-aY-wyN"/>
+                                    <constraint firstAttribute="trailing" secondItem="8kb-5F-c9g" secondAttribute="trailing" constant="16" id="wIv-O7-6lu"/>
+                                    <constraint firstItem="fTo-rB-wr5" firstAttribute="centerX" secondItem="qbt-dp-WiL" secondAttribute="centerX" id="zPe-ce-mYp"/>
+                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="leading" secondItem="Sdc-5I-cyw" secondAttribute="leadingMargin" id="zQK-IF-cUp"/>
                                 </constraints>
                             </view>
                         </subviews>
