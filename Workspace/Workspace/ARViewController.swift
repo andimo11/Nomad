@@ -34,6 +34,9 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         uiImplementView.isHidden = true
     }
     
+    
+//    *********** So renderer and tapped is for the same function as implmenting a new screen?
+    
     @objc func tapped(_ sender: UITapGestureRecognizer) {
             let location = sender.location(in: sender.view)
             guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
@@ -44,6 +47,9 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     }
 
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        
+//      ************ Alex, let's put this in a function? Considering we are reusing code?**************
+        
         let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
         var webView: UIWebView! = UIWebView(frame: rect)
         let webUrl : NSURL = NSURL(string: "https://google.com")!
@@ -68,6 +74,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         return webScreen
     }
 
+    
     @IBAction func decrementButton(_ sender: Any) {
         if counter >= 2 {
             counter -= 1
