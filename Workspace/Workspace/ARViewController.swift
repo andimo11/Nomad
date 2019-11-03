@@ -83,7 +83,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             self.numberOfScreens.text = String(counter)
 
         }
-        // Former action is now in uiImplementView for users to fill out their url 
+        // Former action is now in uiImplementView for users to fill out their url
         uiImplementView.isHidden = false
 
     }
@@ -100,17 +100,17 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     
         
 //    call this function to get current location * other transformation code
-        func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
-            let cameraTransform = sceneView.session.currentFrame?.camera.transform
-            let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
-    
-            var cc = myCameraCoordinates()
-            cc.x = cameraCoordinates.translation.x
-            cc.y = cameraCoordinates.translation.y
-            cc.z = cameraCoordinates.translation.z
-    
-            return cc
-        }
+    func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
+        let cameraTransform = sceneView.session.currentFrame?.camera.transform
+        let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
+
+        var cc = myCameraCoordinates()
+        cc.x = cameraCoordinates.translation.x
+        cc.y = cameraCoordinates.translation.y
+        cc.z = cameraCoordinates.translation.z
+
+        return cc
+    }
 
 //    variables with view location data
     struct myCameraCoordinates {
