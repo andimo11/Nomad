@@ -83,11 +83,13 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             self.numberOfScreens.text = String(counter)
 
         }
+        // Former action is now in uiImplementView for users to fill out their url 
         uiImplementView.isHidden = false
 
     }
     
     @IBAction func createARView(_ sender: Any) {
+        // Put action in separate method for same action with return button too
         forButtonClick()
     }
     
