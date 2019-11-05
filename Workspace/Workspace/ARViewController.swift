@@ -36,7 +36,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     
     
 //    *********** So renderer and tapped is for the same function as implmenting a new screen?
-    
+//*****Answer//we need both of these functions for the tapping feature
     @objc func tapped(_ sender: UITapGestureRecognizer) {
             let location = sender.location(in: sender.view)
             guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
@@ -47,9 +47,10 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     }
 
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        
+        guard let imageAnchor = anchor as? ARImageAnchor else {return nil}
 //      ************ Alex, let's put this in a function? Considering we are reusing code?**************
-        
+//*****Answer//we are eventually going replace the other function with this one
+        //the other function with the same code should be commented out when testing this code
         let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
         var webView: UIWebView! = UIWebView(frame: rect)
         let webUrl : NSURL = NSURL(string: "https://google.com")!
@@ -71,7 +72,11 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
       
         webScreen.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
         
-        return webScreen
+        let node = SCNNode()
+        
+        node.addChildNode(webScreen)
+        
+        return node
     }
 
     
@@ -81,8 +86,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             self.numberOfScreens.text = String(counter)
         }
     }
-    
-    
         
     @IBAction func incrementButton(_ sender: Any) {
         if counter <= 5 {
@@ -105,7 +108,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         uiImplementView.isHidden = true
     }
     
-        
 //    call this function to get current location * other transformation code
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
         let cameraTransform = sceneView.session.currentFrame?.camera.transform
