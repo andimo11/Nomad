@@ -20,6 +20,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBOutlet weak var uiImplementView: UIView!
     
     var counter = 1
+    var alreadyClicked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +102,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBAction func createARView(_ sender: Any) {
         // Put action in separate method for same action with return button too
         forButtonClick()
+        alreadyClicked = false
     }
     
     
@@ -130,7 +132,9 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        forButtonClick()
+        if !alreadyClicked {
+            forButtonClick()
+        }
         return true;
     }
     
