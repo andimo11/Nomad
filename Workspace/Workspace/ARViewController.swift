@@ -140,12 +140,11 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     
     private func forButtonClick() {
         uiImplementView.isHidden = true
-        let givenUrl = "https://" + (urlTextField.text ?? "google.com")
-        
-        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-        let webView: UIWebView! = UIWebView(frame: rect)
+      
 
         DispatchQueue.main.async {
+            let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
+            let webView: UIWebView! = UIWebView(frame: rect)
             //creates webView node
             self.view.addSubview(webView!)
 
@@ -156,7 +155,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
 //**********//Trying to initialize plane from custom screen**********
 //            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
             //^ top replaced bottom v
-
+            let givenUrl = "https://" + (self.urlTextField.text ?? "google.com")
             let webUrl : NSURL = NSURL(string: givenUrl)!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
 
