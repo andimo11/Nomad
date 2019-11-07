@@ -35,52 +35,30 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         uiImplementView.isHidden = true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+        let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
+        guard let hitResult = result.last else {return}
+        let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
+        let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
+    }
     
-//    *********** So renderer and tapped is for the same function as implmenting a new screen?
-//*****Answer//we need both of these functions for the tapping feature
-    @objc func tapped(_ sender: UITapGestureRecognizer) {
-            let location = sender.location(in: sender.view)
-            guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
-                  let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
-                  planeAnchor.alignment == .vertical else { return }
-            let anchor = ARAnchor(transform: hitTestResult.worldTransform)
-            self.sceneView.session.add(anchor: anchor)
+    func createScreen(position: SCNVector3) {
+        DispatchQueue.main.async {
+            let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
+            let webView: UIWebView! = UIWebView(frame: rect)
+            self.view.addSubview(webView!)
+            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
+            let webUrl : NSURL = NSURL(string: "https://www.reddit.com/")!
+            let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
+            webView.loadRequest(request as URLRequest)
+            displayPlane.firstMaterial?.diffuse.contents = webView
+            let webScreen = SCNNode(geometry: displayPlane)
+            webScreen.position = position
+            self.sceneView.scene.rootNode.addChildNode(webScreen)
+        }
     }
 
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        guard let imageAnchor = anchor as? ARImageAnchor else {return nil}
-//      ************ Alex, let's put this in a function? Considering we are reusing code?**************
-//*****Answer//we are eventually going replace the other function with this one
-        //the other function with the same code should be commented out when testing this code
-        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-        var webView: UIWebView! = UIWebView(frame: rect)
-        let webUrl : NSURL = NSURL(string: "https://google.com")!
-        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-
-        //creates webView node
-        self.view.addSubview(webView!)
-
-        //creates the plane where the screen will be displayed
-        let displayPlane = SCNPlane(width: 0.5,height: 0.3)
-
-        webView.loadRequest(request as URLRequest)
-
-        //projects the contents of the webView onto the plane
-        displayPlane.firstMaterial?.diffuse.contents = webView
-
-        //creates nodeø
-        let webScreen = SCNNode(geometry: displayPlane)
-      
-        webScreen.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
-        
-        let node = SCNNode()
-        
-        node.addChildNode(webScreen)
-        
-        return node
-    }
-
-    
     @IBAction func decrementButton(_ sender: Any) {
         if counter >= 2 {
             counter -= 1
@@ -92,7 +70,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         if counter <= 5 {
             counter += 1
             self.numberOfScreens.text = String(counter)
-
         }
         // Former action is now in uiImplementView for users to fill out their url
         uiImplementView.isHidden = false
@@ -104,7 +81,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         forButtonClick()
         alreadyClicked = false
     }
-    
     
     @IBAction func getRidOfView(_ sender: Any) {
         uiImplementView.isHidden = true
@@ -145,39 +121,63 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         DispatchQueue.main.async {
             let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
             let webView: UIWebView! = UIWebView(frame: rect)
-            //creates webView node
             self.view.addSubview(webView!)
-
-            //creates the plane where the screen will be displayed
             let displayPlane = SCNPlane(width: 0.5,height: 0.3)
-
-//James, ignore this
-//**********//Trying to initialize plane from custom screen**********
-//            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
-            //^ top replaced bottom v
             let givenUrl = "https://" + (self.urlTextField.text ?? "google.com")
             let webUrl : NSURL = NSURL(string: givenUrl)!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-
             webView.loadRequest(request as URLRequest)
-
-            //projects the contents of the webView onto the plane
             displayPlane.firstMaterial?.diffuse.contents = webView
-
-            //creates nodeø
             let webScreen = SCNNode(geometry: displayPlane)
-
-            //puts screen where camera is facing
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
-
-            //places the screen where the camera is facing, z axis is altered to push screen back
             webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
-
             self.sceneView.scene.rootNode.addChildNode(webScreen)
-
         }
     }
 }
 
+//JUNK_YARD
 
+////*****TO BE DELETED*******
+//    @objc func tapped(_ sender: UITapGestureRecognizer) {
+//        let location = sender.location(in: sender.view)
+//        guard let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
+//              let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
+//              planeAnchor.alignment == .vertical else { return }
+//        let anchor = ARAnchor(transform: hitTestResult.worldTransform)
+//        self.sceneView.session.add(anchor: anchor)
+////        renderer(anchor)
+//    }
 
+//func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+//        guard let imageAnchor = anchor as? ARImageAnchor else {return nil}
+////      ************ Alex, let's put this in a function? Considering we are reusing code?**************
+////*****Answer//we are eventually going replace the other function with this one
+//        //the other function with the same code should be commented out when testing this code
+//        let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
+//        var webView: UIWebView! = UIWebView(frame: rect)
+//        let webUrl : NSURL = NSURL(string: "https://google.com")!
+//        let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
+//
+//        //creates webView node
+//        self.view.addSubview(webView!)
+//
+//        //creates the plane where the screen will be displayed
+//        let displayPlane = SCNPlane(width: 0.5,height: 0.3)
+//
+//        webView.loadRequest(request as URLRequest)
+//
+//        //projects the contents of the webView onto the plane
+//        displayPlane.firstMaterial?.diffuse.contents = webView
+//
+//        //creates nodeø
+//        let webScreen = SCNNode(geometry: displayPlane)
+//
+//        webScreen.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
+//
+//        let node = SCNNode()
+//
+//        node.addChildNode(webScreen)
+//
+//        return node
+//    }
