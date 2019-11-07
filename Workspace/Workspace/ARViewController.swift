@@ -35,8 +35,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         uiImplementView.isHidden = true
     }
     
-    
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
         let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
@@ -72,7 +70,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         if counter <= 5 {
             counter += 1
             self.numberOfScreens.text = String(counter)
-
         }
         // Former action is now in uiImplementView for users to fill out their url
         uiImplementView.isHidden = false
@@ -84,7 +81,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         forButtonClick()
         alreadyClicked = false
     }
-    
     
     @IBAction func getRidOfView(_ sender: Any) {
         uiImplementView.isHidden = true
@@ -125,36 +121,17 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         DispatchQueue.main.async {
             let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
             let webView: UIWebView! = UIWebView(frame: rect)
-            //creates webView node
             self.view.addSubview(webView!)
-
-            //creates the plane where the screen will be displayed
             let displayPlane = SCNPlane(width: 0.5,height: 0.3)
-
-//James, ignore this
-//**********//Trying to initialize plane from custom screen**********
-//            let displayPlane = SCNScene(named: "SceneKit Asset Catalog.scnassets/SceneKit Scene.scn")
-            //^ top replaced bottom v
             let givenUrl = "https://" + (self.urlTextField.text ?? "google.com")
             let webUrl : NSURL = NSURL(string: givenUrl)!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-
             webView.loadRequest(request as URLRequest)
-
-            //projects the contents of the webView onto the plane
             displayPlane.firstMaterial?.diffuse.contents = webView
-
-            //creates nodeø
             let webScreen = SCNNode(geometry: displayPlane)
-
-            //puts screen where camera is facing
             let cc = self.getCameraCoordinates(sceneView: self.sceneView)
-
-            //places the screen where the camera is facing, z axis is altered to push screen back
             webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
-
             self.sceneView.scene.rootNode.addChildNode(webScreen)
-
         }
     }
 }
