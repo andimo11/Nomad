@@ -41,6 +41,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         guard let hitResult = result.last else {return}
         let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
         let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
+        createScreen(position: hitVector)
     }
     
     func createScreen(position: SCNVector3) {
@@ -58,7 +59,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
     }
-
+ 
     @IBAction func decrementButton(_ sender: Any) {
         if counter >= 2 {
             counter -= 1
@@ -73,7 +74,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         }
         // Former action is now in uiImplementView for users to fill out their url
         uiImplementView.isHidden = false
-
     }
     
     @IBAction func createARView(_ sender: Any) {
@@ -90,12 +90,10 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
         let cameraTransform = sceneView.session.currentFrame?.camera.transform
         let cameraCoordinates = MDLTransform(matrix: cameraTransform!)
-
         var cc = myCameraCoordinates()
         cc.x = cameraCoordinates.translation.x
         cc.y = cameraCoordinates.translation.y
         cc.z = cameraCoordinates.translation.z
-
         return cc
     }
 
@@ -116,8 +114,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     
     private func forButtonClick() {
         uiImplementView.isHidden = true
-      
-
         DispatchQueue.main.async {
             let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
             let webView: UIWebView! = UIWebView(frame: rect)
