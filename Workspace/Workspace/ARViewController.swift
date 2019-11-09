@@ -29,6 +29,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
         urlTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +61,8 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             webScreen.position = position
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
-        let mainWindow = sceneView.scene.rootNode.childNodes
+        
+        
     }
  
     @IBAction func decrementButton(_ sender: Any) {
@@ -88,7 +90,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBAction func getRidOfView(_ sender: Any) {
         uiImplementView.isHidden = true
     }
-    
+        
 //    call this function to get current location * other transformation code
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
         let cameraTransform = sceneView.session.currentFrame?.camera.transform
