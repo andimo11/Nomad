@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoX-o1-gnL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -15,13 +15,28 @@
                     <view key="view" contentMode="scaleToFill" id="kcd-xF-EVB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wh8-6z-1Xg" customClass="GIDSignInButton">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wh8-6z-1Xg" firstAttribute="centerX" secondItem="kcd-xF-EVB" secondAttribute="centerX" id="L5l-Az-ev5"/>
+                            <constraint firstItem="Wh8-6z-1Xg" firstAttribute="centerY" secondItem="kcd-xF-EVB" secondAttribute="centerY" id="NWi-Rt-iIe"/>
+                            <constraint firstItem="Wh8-6z-1Xg" firstAttribute="leading" secondItem="mxg-V8-Cth" secondAttribute="leading" id="T8O-5i-3kQ"/>
+                            <constraint firstItem="Wh8-6z-1Xg" firstAttribute="top" secondItem="kcd-xF-EVB" secondAttribute="topMargin" constant="-44" id="drH-Zq-jfk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mxg-V8-Cth"/>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="Wh8-6z-1Xg" id="dc3-dG-C0U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVe-AN-IoO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-648" y="115"/>
+            <point key="canvasLocation" x="-649.27536231884062" y="114.50892857142857"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

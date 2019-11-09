@@ -13,6 +13,8 @@ import GoogleSignIn
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
+    var window: UIWindow?
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
           if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
@@ -27,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let idToken = user.authentication.idToken // Safe to send to the server
         let fullName = user.profile.name
     }
-    
-
-    var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
