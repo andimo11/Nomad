@@ -60,6 +60,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             webScreen.position = position
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
+        let mainWindow = sceneView.scene.rootNode.childNodes
     }
  
     @IBAction func decrementButton(_ sender: Any) {
