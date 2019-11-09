@@ -130,4 +130,10 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
     }
+    
+    @IBAction func signOut(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+    }
+    
+    
 }
