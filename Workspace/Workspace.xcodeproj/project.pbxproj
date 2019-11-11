@@ -15,6 +15,7 @@
 		0F3D9EA12327544F0051302A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */; };
 		0F3D9EAC2327544F0051302A /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */; };
 		0F4430F32373C4C500CEF200 /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4430F22373C4C500CEF200 /* SIgnInViewController.swift */; };
+		0F90757423792519004185CE /* ARKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F90757323792519004185CE /* ARKitHelper.swift */; };
 		A536F679AABC2B08812A345B /* libPods-Workspace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B21EA1B84BBAEFCE0ACA092 /* libPods-Workspace.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceTests.swift; sourceTree = "<group>"; };
 		0F3D9EAD2327544F0051302A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F4430F22373C4C500CEF200 /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
+		0F90757323792519004185CE /* ARKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitHelper.swift; sourceTree = "<group>"; };
 		6B21EA1B84BBAEFCE0ACA092 /* libPods-Workspace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Workspace.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD04374301C66AAB219DA3A /* Pods-Workspace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workspace.debug.xcconfig"; path = "Target Support Files/Pods-Workspace/Pods-Workspace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 			children = (
 				0F3D9E962327544C0051302A /* AppDelegate.swift */,
 				0F3D9E982327544C0051302A /* ARViewController.swift */,
+				0F90757323792519004185CE /* ARKitHelper.swift */,
 				0F3D9E9A2327544C0051302A /* Main.storyboard */,
 				08B46C2C2364A26800E0148A /* SceneKit Asset Catalog.scnassets */,
 				0F3D9E9D2327544F0051302A /* Assets.xcassets */,
@@ -275,6 +278,7 @@
 				0F3D9E992327544C0051302A /* ARViewController.swift in Sources */,
 				0F4430F32373C4C500CEF200 /* SIgnInViewController.swift in Sources */,
 				0F3D9E972327544C0051302A /* AppDelegate.swift in Sources */,
+				0F90757423792519004185CE /* ARKitHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

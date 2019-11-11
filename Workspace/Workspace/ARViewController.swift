@@ -20,6 +20,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBOutlet weak var numberOfScreens: UILabel!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var uiImplementView: UIView!
+    
 
     var counter = 1
     var alreadyClicked = false
@@ -40,14 +41,24 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
+        print(touch.location(in: sceneView))
+        print("touch \n\n\n\n\n")
+        
+        // Check ARKit Helper. Trying to find a way to get the Node and use it as a first responder
+        let nameForNode = ifLocationIsSelected(location: touch.location(in: sceneView))
+        if nameForNode == "" {
+            return
+        }
         let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
         guard let hitResult = result.last else {return}
         let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
         let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
-        createScreen(position: hitVector)
+        
+        // Passing the name as an identifier
+        createScreen(position: hitVector, name: nameForNode)
     }
     
-    func createScreen(position: SCNVector3) {
+    func createScreen(position: SCNVector3, name: String) {
         DispatchQueue.main.async {
             let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
             let webView: UIWebView! = UIWebView(frame: rect)
@@ -59,7 +70,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             displayPlane.firstMaterial?.diffuse.contents = webView
             let webScreen = SCNNode(geometry: displayPlane)
             webScreen.position = position
-            webScreen.name = "webscreen"
+            webScreen.name = name
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
     }
