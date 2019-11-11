@@ -20,7 +20,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBOutlet weak var numberOfScreens: UILabel!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var uiImplementView: UIView!
-    
+
     var counter = 1
     var alreadyClicked = false
     
@@ -59,10 +59,9 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             displayPlane.firstMaterial?.diffuse.contents = webView
             let webScreen = SCNNode(geometry: displayPlane)
             webScreen.position = position
+            webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
-        
-        
     }
  
     @IBAction func decrementButton(_ sender: Any) {
