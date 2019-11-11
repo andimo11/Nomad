@@ -22,6 +22,7 @@ func ifLocationIsSelected(location: CGPoint) -> String {
         let nodeName = "Screen " + String(storedNodes.count)
         locationToStringName[storedNodes.count] = nodeName
         print("stored in there \n\n\n\n")
+        print(locationToStringName)
         return nodeName
     }
 }
