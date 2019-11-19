@@ -29,7 +29,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         // Do any additional setup after loading the view.
         self.numberOfScreens.text = "1"
         urlTextField.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +42,8 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
         guard let hitResult = result.last else {return}
         let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
-        let hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
+        var hitVector = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
+        hitVector.z -= 0.75
         createScreen(position: hitVector)
     }
     
@@ -62,22 +62,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
-    }
- 
-    @IBAction func decrementButton(_ sender: Any) {
-        if counter >= 2 {
-            counter -= 1
-            self.numberOfScreens.text = String(counter)
-        }
-    }
-        
-    @IBAction func incrementButton(_ sender: Any) {
-        if counter <= 5 {
-            counter += 1
-            self.numberOfScreens.text = String(counter)
-        }
-        // Former action is now in uiImplementView for users to fill out their url
-        uiImplementView.isHidden = false
     }
     
     @IBAction func createARView(_ sender: Any) {
@@ -138,6 +122,4 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBAction func signOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
-    
-    
 }

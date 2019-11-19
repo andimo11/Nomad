@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoX-o1-gnL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoX-o1-gnL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,30 +50,6 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj9-AX-fHX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-ZF-qRD">
-                                <rect key="frame" x="72" y="821" width="42" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="uhk-iZ-mDN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
-                                <state key="normal" title="-"/>
-                                <connections>
-                                    <action selector="decrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjg-AR-xDq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvj-5K-kiv">
-                                <rect key="frame" x="320" y="821" width="30" height="56"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="incrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zzK-YX-N2u"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBY-Wv-G3P">
-                                <rect key="frame" x="196" y="836" width="13" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdc-5I-cyw">
                                 <rect key="frame" x="20" y="264" width="374" height="262"/>
                                 <subviews>
@@ -121,19 +97,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZBY-Wv-G3P" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4EP-Gb-GR7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tvj-5K-kiv" secondAttribute="trailing" constant="64" id="9Oz-9a-1vT"/>
-                            <constraint firstAttribute="bottom" secondItem="DbV-ZF-qRD" secondAttribute="bottom" constant="19" id="9UU-z2-D8d"/>
                             <constraint firstItem="Sdc-5I-cyw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Avp-mh-yW4"/>
-                            <constraint firstItem="ZBY-Wv-G3P" firstAttribute="leading" secondItem="DbV-ZF-qRD" secondAttribute="trailing" constant="82" id="C1L-zY-jOW"/>
                             <constraint firstItem="Sdc-5I-cyw" firstAttribute="centerX" secondItem="bj9-AX-fHX" secondAttribute="centerX" id="Hmb-2Q-WAT"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
-                            <constraint firstAttribute="bottom" secondItem="tvj-5K-kiv" secondAttribute="bottom" constant="19" id="aVD-y9-5yn"/>
                             <constraint firstItem="Sdc-5I-cyw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="fgG-u2-OUW"/>
-                            <constraint firstItem="DbV-ZF-qRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="iJL-GD-J2b"/>
                             <constraint firstAttribute="bottom" secondItem="Sdc-5I-cyw" secondAttribute="bottom" constant="370" id="iYt-Xg-gnK"/>
-                            <constraint firstItem="tvj-5K-kiv" firstAttribute="baseline" secondItem="DbV-ZF-qRD" secondAttribute="baseline" id="jKb-w1-LoC"/>
                             <constraint firstAttribute="bottom" secondItem="bj9-AX-fHX" secondAttribute="bottom" id="nos-8c-gMW"/>
                             <constraint firstAttribute="trailing" secondItem="bj9-AX-fHX" secondAttribute="trailing" id="pQS-t8-7Mu"/>
                         </constraints>
@@ -141,7 +110,6 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="numberOfScreens" destination="ZBY-Wv-G3P" id="JEf-1R-sGu"/>
                         <outlet property="sceneView" destination="bj9-AX-fHX" id="Uum-Q4-MR9"/>
                         <outlet property="uiImplementView" destination="Sdc-5I-cyw" id="NZI-fl-TR8"/>
                         <outlet property="urlTextField" destination="qbt-dp-WiL" id="2LC-LU-Eyk"/>
