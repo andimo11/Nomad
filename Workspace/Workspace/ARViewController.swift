@@ -17,7 +17,6 @@ import GoogleSignIn
 class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var numberOfScreens: UILabel!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var uiImplementView: UIView!
 
@@ -27,8 +26,13 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.numberOfScreens.text = "1"
         urlTextField.delegate = self
+        addTapGestureToSceneView()
+    }
+    
+    func addTapGestureToSceneView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ARViewController.didTap(withGestureRecognizer:)))
+        sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +57,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             let webView: UIWebView! = UIWebView(frame: rect)
             self.view.addSubview(webView!)
             let displayPlane = SCNPlane(width: 0.5,height: 0.3)
-            let webUrl : NSURL = NSURL(string: "https://www.reddit.com/")!
+            let webUrl : NSURL = NSURL(string: "https://www.youtube.com/")!
             let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
             webView.loadRequest(request as URLRequest)
             displayPlane.firstMaterial?.diffuse.contents = webView
@@ -62,6 +66,13 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
+    }
+    
+    @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
+        let tapLocation = recognizer.location(in: sceneView)
+        let hitTestResults = sceneView.hitTest(recognizer.location(in: sceneView))
+        guard let node = hitTestResults.first?.node else { return }
+        node.removeFromParentNode()
     }
     
     @IBAction func createARView(_ sender: Any) {
