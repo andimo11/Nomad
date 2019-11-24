@@ -68,9 +68,10 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         }
     }
     
+    
     @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(recognizer.location(in: sceneView))
+        let hitTestResults = sceneView.hitTest(tapLocation)
         guard let node = hitTestResults.first?.node else { return }
         node.removeFromParentNode()
     }
