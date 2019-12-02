@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVe-AN-IoO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.85507246376812" y="114.50892857142857"/>
+            <point key="canvasLocation" x="62" y="114"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -50,41 +50,6 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj9-AX-fHX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdc-5I-cyw">
-                                <rect key="frame" x="20" y="264" width="374" height="262"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kb-5F-c9g">
-                                        <rect key="frame" x="328" y="7" width="30" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="X"/>
-                                        <connections>
-                                            <action selector="getRidOfView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ld7-bV-OYq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-rB-wr5">
-                                        <rect key="frame" x="172" y="193" width="30" height="30"/>
-                                        <state key="normal" title="Go"/>
-                                        <connections>
-                                            <action selector="createARView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Let-rK-iSD"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbt-dp-WiL">
-                                        <rect key="frame" x="8" y="114" width="358" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="trailing" secondItem="Sdc-5I-cyw" secondAttribute="trailingMargin" id="7ty-vL-be6"/>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="centerY" secondItem="Sdc-5I-cyw" secondAttribute="centerY" id="AdM-pw-gKm"/>
-                                    <constraint firstItem="fTo-rB-wr5" firstAttribute="top" secondItem="qbt-dp-WiL" secondAttribute="bottom" constant="45" id="DqK-7q-NnB"/>
-                                    <constraint firstItem="8kb-5F-c9g" firstAttribute="top" secondItem="Sdc-5I-cyw" secondAttribute="top" constant="7" id="PEB-aY-wyN"/>
-                                    <constraint firstAttribute="trailing" secondItem="8kb-5F-c9g" secondAttribute="trailing" constant="16" id="wIv-O7-6lu"/>
-                                    <constraint firstItem="fTo-rB-wr5" firstAttribute="centerX" secondItem="qbt-dp-WiL" secondAttribute="centerX" id="zPe-ce-mYp"/>
-                                    <constraint firstItem="qbt-dp-WiL" firstAttribute="leading" secondItem="Sdc-5I-cyw" secondAttribute="leadingMargin" id="zQK-IF-cUp"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57B-x1-CvY">
                                 <rect key="frame" x="160" y="770" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -97,12 +62,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Avp-mh-yW4"/>
-                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="centerX" secondItem="bj9-AX-fHX" secondAttribute="centerX" id="Hmb-2Q-WAT"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
-                            <constraint firstItem="Sdc-5I-cyw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="fgG-u2-OUW"/>
-                            <constraint firstAttribute="bottom" secondItem="Sdc-5I-cyw" secondAttribute="bottom" constant="370" id="iYt-Xg-gnK"/>
                             <constraint firstAttribute="bottom" secondItem="bj9-AX-fHX" secondAttribute="bottom" id="nos-8c-gMW"/>
                             <constraint firstAttribute="trailing" secondItem="bj9-AX-fHX" secondAttribute="trailing" id="pQS-t8-7Mu"/>
                         </constraints>
@@ -111,8 +72,6 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="sceneView" destination="bj9-AX-fHX" id="Uum-Q4-MR9"/>
-                        <outlet property="uiImplementView" destination="Sdc-5I-cyw" id="NZI-fl-TR8"/>
-                        <outlet property="urlTextField" destination="qbt-dp-WiL" id="2LC-LU-Eyk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

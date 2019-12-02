@@ -17,8 +17,6 @@ import GoogleSignIn
 class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var urlTextField: UITextField!
-    @IBOutlet weak var uiImplementView: UIView!
 
     var counter = 1
     var alreadyClicked = false
@@ -30,7 +28,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        urlTextField.delegate = self
         addTapGestureToSceneView()
     }
     
@@ -42,7 +39,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     override func viewWillAppear(_ animated: Bool) {
         let configeration = ARWorldTrackingConfiguration()
         sceneView.session.run(configeration)
-        uiImplementView.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -100,15 +96,13 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         node.removeFromParentNode()
     }
     
-    @IBAction func createARView(_ sender: Any) {
-        // Put action in separate method for same action with return button too
-        forButtonClick()
-        alreadyClicked = false
-    }
+//    @IBAction func createARView(_ sender: Any) {
+//        // Put action in separate method for same action with return button too
+//        forButtonClick()
+//        alreadyClicked = false
+//    }
     
-    @IBAction func getRidOfView(_ sender: Any) {
-        uiImplementView.isHidden = true
-    }
+  
         
 //    call this function to get current location * other transformation code
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
@@ -128,32 +122,12 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         var z = Float()
     }
     
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        if !alreadyClicked {
-            forButtonClick()
-        }
-        return true;
-    }
+//    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true;
+//    }
     
-    private func forButtonClick() {
-        uiImplementView.isHidden = true
-        DispatchQueue.main.async {
-            let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
-            let webView: UIWebView! = UIWebView(frame: rect)
-            self.view.addSubview(webView!)
-            let displayPlane = SCNPlane(width: 0.5,height: 0.3)
-            let givenUrl = "https://" + (self.urlTextField.text ?? "google.com")
-            let webUrl : NSURL = NSURL(string: givenUrl)!
-            let request : NSURLRequest = NSURLRequest(url: webUrl as URL)
-            webView.loadRequest(request as URLRequest)
-            displayPlane.firstMaterial?.diffuse.contents = webView
-            let webScreen = SCNNode(geometry: displayPlane)
-            let cc = self.getCameraCoordinates(sceneView: self.sceneView)
-            webScreen.position = SCNVector3(cc.x, cc.y, cc.z - 0.75)
-            self.sceneView.scene.rootNode.addChildNode(webScreen)
-        }
-    }
+
     
     @IBAction func signOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
