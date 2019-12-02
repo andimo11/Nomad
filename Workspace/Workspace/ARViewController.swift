@@ -115,7 +115,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         return cc
     }
 
-//    variables with view location data
+//  variables with view location data
     struct myCameraCoordinates {
         var x = Float()
         var y = Float()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,22 +50,35 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj9-AX-fHX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57B-x1-CvY">
-                                <rect key="frame" x="160" y="770" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57B-x1-CvY">
+                                <rect key="frame" x="165" y="816" width="84" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eTL-KZ-7es"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htL-E7-Xen">
+                                <rect key="frame" x="139" y="644" width="136" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="bzs-dF-Zwj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Add Sites"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="57B-x1-CvY" secondAttribute="bottom" constant="16" id="TVf-qs-drC"/>
+                            <constraint firstItem="htL-E7-Xen" firstAttribute="centerX" secondItem="bj9-AX-fHX" secondAttribute="centerX" id="UcJ-NL-kS7"/>
+                            <constraint firstItem="57B-x1-CvY" firstAttribute="centerX" secondItem="htL-E7-Xen" secondAttribute="centerX" id="ZX7-mr-L0f"/>
+                            <constraint firstItem="57B-x1-CvY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="165" id="dJf-Qi-bU0"/>
                             <constraint firstAttribute="bottom" secondItem="bj9-AX-fHX" secondAttribute="bottom" id="nos-8c-gMW"/>
                             <constraint firstAttribute="trailing" secondItem="bj9-AX-fHX" secondAttribute="trailing" id="pQS-t8-7Mu"/>
+                            <constraint firstItem="htL-E7-Xen" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="600" id="vpq-cY-SZA"/>
+                            <constraint firstItem="htL-E7-Xen" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="y79-I2-qDR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
