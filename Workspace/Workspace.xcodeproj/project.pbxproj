@@ -16,6 +16,7 @@
 		0F3D9EAC2327544F0051302A /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D9EAB2327544F0051302A /* WorkspaceTests.swift */; };
 		0F4430F32373C4C500CEF200 /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4430F22373C4C500CEF200 /* SIgnInViewController.swift */; };
 		0FAE1FBD2394A76300DFEE12 /* ARUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE1FBC2394A76300DFEE12 /* ARUtil.swift */; };
+		0FBD03BA2396229E00FC8979 /* UrlInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBD03B92396229E00FC8979 /* UrlInputViewController.swift */; };
 		A536F679AABC2B08812A345B /* libPods-Workspace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B21EA1B84BBAEFCE0ACA092 /* libPods-Workspace.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		0F3D9EAD2327544F0051302A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F4430F22373C4C500CEF200 /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
 		0FAE1FBC2394A76300DFEE12 /* ARUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUtil.swift; sourceTree = "<group>"; };
+		0FBD03B92396229E00FC8979 /* UrlInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlInputViewController.swift; sourceTree = "<group>"; };
 		6B21EA1B84BBAEFCE0ACA092 /* libPods-Workspace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Workspace.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD04374301C66AAB219DA3A /* Pods-Workspace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workspace.debug.xcconfig"; path = "Target Support Files/Pods-Workspace/Pods-Workspace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				0F3D9E9F2327544F0051302A /* LaunchScreen.storyboard */,
 				0F3D9EA22327544F0051302A /* Info.plist */,
 				0F4430F22373C4C500CEF200 /* SIgnInViewController.swift */,
+				0FBD03B92396229E00FC8979 /* UrlInputViewController.swift */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FBD03BA2396229E00FC8979 /* UrlInputViewController.swift in Sources */,
 				0FAE1FBD2394A76300DFEE12 /* ARUtil.swift in Sources */,
 				0F3D9E992327544C0051302A /* ARViewController.swift in Sources */,
 				0F4430F32373C4C500CEF200 /* SIgnInViewController.swift in Sources */,
