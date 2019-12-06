@@ -11,8 +11,6 @@ import UIKit
 class UrlInputViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var urlTextInputs: [UITextField]!
-    var textInputs: [String?] = []
-    
     var count = 0
     
     override func viewDidLoad() {
@@ -38,6 +36,7 @@ class UrlInputViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func transferDataButton(_ sender: Any) {
         self.performSegue(withIdentifier: "passData", sender: self)
+        var textInputs: [String?] = []
         for url in urlTextInputs {
             if url.text != "" {
                 count += 1
