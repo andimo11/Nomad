@@ -11,8 +11,8 @@
 import Foundation
 
 // For the passing of data through segue to ARViewController
-public func screenShaping(count: Int, textUrls: [String]) {
-    print("placeholder")
+public func screenShaping(textUrls: [String]) {
+    let count = textUrls.count
     
 }
 

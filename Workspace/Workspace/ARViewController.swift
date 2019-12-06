@@ -17,8 +17,6 @@ import GoogleSignIn
 class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
-
-    var counter = 0
     var alreadyClicked = false
     
     // Store the coordinates for the next coming node. Want to add logic if we remove one
