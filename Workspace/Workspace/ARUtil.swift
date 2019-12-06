@@ -11,9 +11,9 @@
 import Foundation
 
 // For the passing of data through segue to ARViewController
-struct MonitorSet {
-    let numberOfMonitors: Int
-    let websites: [String]
+public func screenShaping(count: Int, textUrls: [String]) {
+    print("placeholder")
+    
 }
 
 
