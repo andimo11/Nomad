@@ -8,9 +8,12 @@
 
 import UIKit
 
-class UrlInputViewController: UIViewController {
+class UrlInputViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var urlTextInputs: [UITextField]!
+    var textInputs: [String?]
+    
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +25,7 @@ class UrlInputViewController: UIViewController {
     @IBAction func submitButton(_ sender: Any) {
     }
     
-   func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         for textField in self.view.subviews where textField is UITextField {
             textField.resignFirstResponder()
         }
@@ -32,5 +35,22 @@ class UrlInputViewController: UIViewController {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+    
+    @IBAction func transferDataButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "passData", sender: self)
+        for url in urlTextInputs {
+            if url.text != "" {
+                count += 1
+            }
+            textInputs.append("https://" + url.text!)
+        }
+        
+        var urlInputs = MonitorSet(
+            numberOfMonitors: count,
+            websites: textInputs as! [String]
+        )
+      
+    }
+    
     
 }
