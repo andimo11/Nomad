@@ -11,7 +11,7 @@ import UIKit
 class UrlInputViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var urlTextInputs: [UITextField]!
-    var textInputs: [String?]
+    var textInputs: [String?] = []
     
     var count = 0
     
