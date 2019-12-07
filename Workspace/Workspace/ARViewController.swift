@@ -19,6 +19,9 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
     @IBOutlet weak var sceneView: ARSCNView!
     var alreadyClicked = false
     
+    // URLs received in the 
+    var inputUrls: [String] = []
+    
     // Store the coordinates for the next coming node. Want to add logic if we remove one
     var nextNodeCoordinates: [Float] = []
     

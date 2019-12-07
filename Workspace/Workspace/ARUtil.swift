@@ -13,6 +13,9 @@ import Foundation
 // For the passing of data through segue to ARViewController
 public func screenShaping(textUrls: [String]) {
     let count = textUrls.count
+    if(count > 4 || count < 1) {
+        print("The count should range from 1 - 4")
+    }
     
 }
 
