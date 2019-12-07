@@ -113,6 +113,10 @@
                         <viewLayoutGuide key="safeArea" id="K9P-IB-BLx"/>
                     </view>
                     <connections>
+                        <outletCollection property="urlInputFields" destination="6U4-rc-qIs" collectionClass="NSMutableArray" id="5OF-Qr-aiF"/>
+                        <outletCollection property="urlInputFields" destination="rpY-nU-aen" collectionClass="NSMutableArray" id="gY3-OQ-qAt"/>
+                        <outletCollection property="urlInputFields" destination="Xpo-ox-keD" collectionClass="NSMutableArray" id="YXP-WJ-etg"/>
+                        <outletCollection property="urlInputFields" destination="iQQ-NB-qwR" collectionClass="NSMutableArray" id="3Vt-wg-yVr"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="transferUrls" id="Ccf-yv-RLl"/>
                     </connections>
                 </viewController>
