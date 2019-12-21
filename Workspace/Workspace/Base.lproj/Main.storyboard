@@ -143,26 +143,15 @@
                                     <action selector="signOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eTL-KZ-7es"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htL-E7-Xen">
-                                <rect key="frame" x="99" y="644" width="217" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="ZKQ-OS-g5w"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <state key="normal" title="Add Sites"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="htL-E7-Xen" firstAttribute="centerX" secondItem="bj9-AX-fHX" secondAttribute="centerX" id="MhH-Bl-Gpi"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PVE-Uk-1cS"/>
                             <constraint firstItem="bj9-AX-fHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QLf-YE-Syu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="57B-x1-CvY" secondAttribute="bottom" constant="16" id="TVf-qs-drC"/>
                             <constraint firstItem="57B-x1-CvY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="165" id="dJf-Qi-bU0"/>
                             <constraint firstAttribute="bottom" secondItem="bj9-AX-fHX" secondAttribute="bottom" id="nos-8c-gMW"/>
                             <constraint firstAttribute="trailing" secondItem="bj9-AX-fHX" secondAttribute="trailing" id="pQS-t8-7Mu"/>
-                            <constraint firstItem="htL-E7-Xen" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="644" id="wBM-NK-Hcn"/>
-                            <constraint firstItem="htL-E7-Xen" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="zzi-vq-p24"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
