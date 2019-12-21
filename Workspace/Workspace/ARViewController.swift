@@ -53,7 +53,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             guard let hitResult = result.last else {return}
             for url in inputUrls {
                 let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
-                
             
                 // If empty we store node based on touch
                 if nextNodeCoordinates.isEmpty {
