@@ -94,7 +94,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             displayPlane.firstMaterial?.diffuse.contents = webView
             let webScreen = SCNNode(geometry: displayPlane)
             webScreen.position = position
-            webScreen.lookAt(SCNVector3(100, 50, -100))
+            webScreen.lookAt(SCNVector3(-18, 0, -50))
             webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
