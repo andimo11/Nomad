@@ -12,6 +12,32 @@ import WebKit
 import SpriteKit
 import GoogleSignIn
 
+extension Float {
+    /// Convert degrees to radians
+    func asRadians() -> Float {
+        return self * Float.pi / 180
+    }
+}
+
+extension SCNNode {
+    /// Look at a SCNVector3 point
+    func lookAt(_ point: SCNVector3) {
+        // Find change in positions
+        let changeX = self.position.x - point.x // Change in X position
+        let changeY = self.position.y - point.y // Change in Y position
+        let changeZ = self.position.z - point.z // Change in Z position
+
+        // Calculate the X and Y angles
+        let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
+        let angleY = atan2(changeZ, changeX)
+
+        // Calculate the X and Y rotations
+        let xRot = Float(-90).asRadians() - angleX // X rotation
+        let yRot = Float(90).asRadians() - angleY // Y rotation
+        self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
+    }
+}
+
 
 // Where the logic will be. There are 2 buttons. To add choose how many screens they want. They can increment and decrement
 class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
@@ -95,11 +121,11 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             displayPlane.firstMaterial?.diffuse.contents = webView
             let webScreen = SCNNode(geometry: displayPlane)
             webScreen.position = position
+            webScreen.lookAt(SCNVector3(100, 50, -100))
             webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
     }
-    
     
     @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
