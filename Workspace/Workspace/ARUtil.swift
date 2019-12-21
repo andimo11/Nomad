@@ -11,11 +11,15 @@
 import Foundation
 
 // For the passing of data through segue to ARViewController
-public func screenShaping(count: Int) {
-    if(count > 4 || count < 1) {
-        print("The count should range from 1 - 4")
+public func displayLayOut(numScreens: Int) -> [[Int]]{
+    var display: [[Int]] = [[]]
+    switch(numScreens){
+    case(1): return [[0]]
+    case(2): display = [[-18, 0, -50],[18, 0, -50]]
+    case(3): display = [[-18, 0, -50], [0, 0, 0], [18, 0, -50]]
+    case(4): display = [[-18, 20, -50], [18, 20, -50], [-18, -20, -50], [18, -20, -50]]
+    default: print("number of screens error")
     }
-    
+    return display
 }
-
 

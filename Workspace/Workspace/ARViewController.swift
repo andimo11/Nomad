@@ -100,6 +100,15 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         }
     }
     
+//    screenLayouts{
+//      1 screen: no action
+//      2 screens: webScreen.lookAt(SCNVector3(-18, 0, -50)), webScreen.lookAt(SCNVector3(18, 0, -50))
+//      3 screens: webScreen.lookAt(SCNVector3(-18, 0, -50)), webScreen.lookAt(SCNVector3(0, 0, 0)),                webScreen.lookAt(SCNVector3(18, 0, -50))
+//      4 screens: webScreen.lookAt(SCNVector3(-18, 20, -50)), webScreen.lookAt(SCNVector3(18, 20, -50)),                webScreen.lookAt(SCNVector3(-18, -20, -50)), webScreen.lookAt(SCNVector3(18, -20, -50))
+//    }
+    
+    
+    
     @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation)
