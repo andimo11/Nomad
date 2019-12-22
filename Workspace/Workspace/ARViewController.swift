@@ -168,18 +168,21 @@ extension Float {
 extension SCNNode {
     /// Look at a SCNVector3 point
     func lookAt(_ point: SCNVector3) {
-        // Find change in positions
-        let changeX = self.position.x - point.x // Change in X position
-        let changeY = self.position.y - point.y // Change in Y position
-        let changeZ = self.position.z - point.z // Change in Z position
+        if point.x != 0 {
+            // Find change in positions
+            let changeX = self.position.x - point.x // Change in X position
+            let changeY = self.position.y - point.y // Change in Y position
+            let changeZ = self.position.z - point.z // Change in Z position
 
-        // Calculate the X and Y angles
-        let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
-        let angleY = atan2(changeZ, changeX)
+            // Calculate the X and Y angles
+            let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
+            let angleY = atan2(changeZ, changeX)
 
-        // Calculate the X and Y rotations
-        let xRot = Float(-90).asRadians() - angleX // X rotation
-        let yRot = Float(90).asRadians() - angleY // Y rotation
-        self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
+            // Calculate the X and Y rotations
+            let xRot = Float(-90).asRadians() - angleX // X rotation
+            let yRot = Float(90).asRadians() - angleY // Y rotation
+            self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
+        }
+        else {return}
     }
 }
