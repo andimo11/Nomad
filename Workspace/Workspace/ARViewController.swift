@@ -52,10 +52,10 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             guard let hitResult = result.last else {return}
             
             let nodeAdjustments = displayLayOut(numScreens: inputUrls.count)
-            
-            for i in 0...(inputUrls.count) {
+  
+            for i in 0...((inputUrls.count) - 1) {
                 let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
-            
+
                 // If empty we store node based on touch
                 if nextNodeCoordinates.isEmpty {
                     var hitVectorFirst = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
