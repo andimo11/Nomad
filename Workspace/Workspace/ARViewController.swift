@@ -103,30 +103,13 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
     }
-    
-//    screenLayouts{
-//      1 screen: no action
-//      2 screens: webScreen.lookAt(SCNVector3(-18, 0, -50)), webScreen.lookAt(SCNVector3(18, 0, -50))
-//      3 screens: webScreen.lookAt(SCNVector3(-18, 0, -50)), webScreen.lookAt(SCNVector3(0, 0, 0)),                webScreen.lookAt(SCNVector3(18, 0, -50))
-//      4 screens: webScreen.lookAt(SCNVector3(-18, 20, -50)), webScreen.lookAt(SCNVector3(18, 20, -50)),                webScreen.lookAt(SCNVector3(-18, -20, -50)), webScreen.lookAt(SCNVector3(18, -20, -50))
-//    }
-    
-    
-    
+        
     @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation)
         guard let node = hitTestResults.last?.node else { return }
         node.removeFromParentNode()
     }
-    
-//    @IBAction func createARView(_ sender: Any) {
-//        // Put action in separate method for same action with return button too
-//        forButtonClick()
-//        alreadyClicked = false
-//    }
-    
-  
         
 //    call this function to get current location * other transformation code
     func getCameraCoordinates(sceneView: ARSCNView) -> myCameraCoordinates {
@@ -145,13 +128,6 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         var y = Float()
         var z = Float()
     }
-    
-//    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true;
-//    }
-    
-
     
     @IBAction func signOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
