@@ -51,11 +51,11 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             let result = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
             guard let hitResult = result.last else {return}
             
-            let nodeAdjustments = displayLayOut(numScreens: inputUrls.count)
-
-            for i in 0...((inputUrls.count) - 1) {
+            let adjustments = displayLayOut(numScreens: inputUrls.count)
+            
+            for i in 0...(inputUrls.count - 1) {
                 let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
-                
+            
                 // If empty we store node based on touch
                 if nextNodeCoordinates.isEmpty {
                     var hitVectorFirst = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
@@ -65,18 +65,20 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
                     nextNodeCoordinates.append(hitVectorFirst.x)
                     nextNodeCoordinates.append(hitVectorFirst.y)
                     nextNodeCoordinates.append(hitVectorFirst.z)
- 
-                    createScreen(position: hitVectorFirst, url: inputUrls[i], adjustments: nodeAdjustments[i])
+                    
+                    createScreen(position: hitVectorFirst, url: inputUrls[i], adjust: adjustments[i])
                     
                 } else {
                     // If the array is not empty we add a monitor right next to it
+                    print(nextNodeCoordinates)
+                    print("\n\n\n\n")
                     let hitVectorAdjusted = SCNVector3Make(nextNodeCoordinates[0] + 0.5, nextNodeCoordinates[1], nextNodeCoordinates[2])
                     
                     nextNodeCoordinates[0] += 0.5
                     
-                    createScreen(position: hitVectorAdjusted, url: inputUrls[i], adjustments: nodeAdjustments[i])
+                    createScreen(position: hitVectorAdjusted, url: inputUrls[i], adjust:
+                    adjustments[i])
                 }
-                
             }
             
             noScreens = false
@@ -84,7 +86,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
         
     }
     
-    func createScreen(position: SCNVector3, url: String, adjustments: Array<Int>) {
+    func createScreen(position: SCNVector3, url: String, adjust: Array<Int>) {
         DispatchQueue.main.async {
             let rect = CGRect(x: 40, y: 80, width: 400, height: 400)
             let webView: UIWebView! = UIWebView(frame: rect)
@@ -95,7 +97,8 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             webView.loadRequest(request as URLRequest)
             displayPlane.firstMaterial?.diffuse.contents = webView
             let webScreen = SCNNode(geometry: displayPlane)
-//            webScreen.lookAt(SCNVector3(adjustments[0], adjustments[1], adjustments[2]))
+            webScreen.position = position
+            webScreen.lookAt(SCNVector3(adjust[0], adjust[1], adjust[2]))
             webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
@@ -147,6 +150,8 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
 //        textField.resignFirstResponder()
 //        return true;
 //    }
+    
+
     
     @IBAction func signOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
