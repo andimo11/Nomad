@@ -52,10 +52,10 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             guard let hitResult = result.last else {return}
             
             let nodeAdjustments = displayLayOut(numScreens: inputUrls.count)
-  
+
             for i in 0...((inputUrls.count) - 1) {
                 let hitTransform = SCNMatrix4.init(hitResult.worldTransform)
-
+                
                 // If empty we store node based on touch
                 if nextNodeCoordinates.isEmpty {
                     var hitVectorFirst = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
@@ -65,7 +65,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
                     nextNodeCoordinates.append(hitVectorFirst.x)
                     nextNodeCoordinates.append(hitVectorFirst.y)
                     nextNodeCoordinates.append(hitVectorFirst.z)
-                    
+ 
                     createScreen(position: hitVectorFirst, url: inputUrls[i], adjustments: nodeAdjustments[i])
                     
                 } else {
@@ -76,6 +76,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
                     
                     createScreen(position: hitVectorAdjusted, url: inputUrls[i], adjustments: nodeAdjustments[i])
                 }
+                
             }
             
             noScreens = false
@@ -94,8 +95,7 @@ class ARViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate
             webView.loadRequest(request as URLRequest)
             displayPlane.firstMaterial?.diffuse.contents = webView
             let webScreen = SCNNode(geometry: displayPlane)
-            webScreen.position = position
-            webScreen.lookAt(SCNVector3(adjustments[0], adjustments[1], adjustments[2]))
+//            webScreen.lookAt(SCNVector3(adjustments[0], adjustments[1], adjustments[2]))
             webScreen.name = "webscreen"
             self.sceneView.scene.rootNode.addChildNode(webScreen)
         }
@@ -163,21 +163,18 @@ extension Float {
 extension SCNNode {
     /// Look at a SCNVector3 point
     func lookAt(_ point: SCNVector3) {
-        if (point.x != 0 && point.y != 0 && point.z != 0) {
-            // Find change in positions
-            let changeX = self.position.x - point.x // Change in X position
-            let changeY = self.position.y - point.y // Change in Y position
-            let changeZ = self.position.z - point.z // Change in Z position
+        // Find change in positions
+        let changeX = self.position.x - point.x // Change in X position
+        let changeY = self.position.y - point.y // Change in Y position
+        let changeZ = self.position.z - point.z // Change in Z position
 
-            // Calculate the X and Y angles
-            let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
-            let angleY = atan2(changeZ, changeX)
+        // Calculate the X and Y angles
+        let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
+        let angleY = atan2(changeZ, changeX)
 
-            // Calculate the X and Y rotations
-            let xRot = Float(-90).asRadians() - angleX // X rotation
-            let yRot = Float(90).asRadians() - angleY // Y rotation
-            self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
-        }
-        else {return}
+        // Calculate the X and Y rotations
+        let xRot = Float(-90).asRadians() - angleX // X rotation
+        let yRot = Float(90).asRadians() - angleY // Y rotation
+        self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
     }
 }
