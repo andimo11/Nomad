@@ -14,11 +14,8 @@ class UrlInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        for textField in urlInputFields {
-            textField.autocorrectionType = .no
-        }
         self.hideKeyboardWhenTappedAround()
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func inputUrlButton(_ sender: Any) {
@@ -37,7 +34,6 @@ class UrlInputViewController: UIViewController {
             ARViewController.inputUrls = urlTexts
         }
     }
-
 }
 
 extension UIViewController {
