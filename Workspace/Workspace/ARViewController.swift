@@ -163,7 +163,7 @@ extension Float {
 extension SCNNode {
     /// Look at a SCNVector3 point
     func lookAt(_ point: SCNVector3) {
-        if point.x != 0 and point.y != 0 and point.z != 0 {
+        if (point.x != 0 && point.y != 0 && point.z != 0) {
             // Find change in positions
             let changeX = self.position.x - point.x // Change in X position
             let changeY = self.position.y - point.y // Change in Y position
